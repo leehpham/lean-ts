@@ -12,4 +12,8 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 
 `npm install --save-dev @types/node`
 
-`npm init @eslint/config`
+`npm install --save-dev eslint`
+
+`npm install --save-dev @typescript-eslint/eslint-plugin`
+
+`npm install --save-dev @typescript-eslint/parser`
