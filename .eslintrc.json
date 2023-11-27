@@ -19,6 +19,7 @@
         "eol-last": [
             "error",
             "always"
-        ]
+        ],
+        "@typescript-eslint/explicit-function-return-type": "error"
     }
 }
