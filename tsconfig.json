@@ -3,7 +3,7 @@
     /* Projects */
 
     /* Language and Environment */
-    "target": "es2016",
+    "target": "ES6", // es2015
 
     /* Modules */
     "module": "commonjs",
