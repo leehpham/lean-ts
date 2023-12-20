@@ -14,13 +14,16 @@ A very lean Typescript boilerplate. This can be used for different project purpo
   - [x] https://github.com/standard/eslint-config-standard-with-typescript
   - [x] https://typescript-eslint.io/
   - [x] issue with member-delimiter-...
-  - rules to consider:
+  - rules to add:
     - [x] space-before-function-paren (review)
     - [x] method-signature-style
     - [x] Enforce function return type.
+    - [x] @typescript-eslint/explicit-member-accessibility
   - [x] Set eslint to only lint needed files.
   - [] migrate to eslint-stylistic when ESLint makes the final annoucement.
 - [x] Add npm scripts.
+- [] devDependencies
+  - [x] ts-node-dev
 - [] Add Jest
 - [] Add Prettier
 
@@ -39,3 +42,5 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 `npm install --save-dev @typescript-eslint/eslint-plugin`
 
 `npm install --save-dev @typescript-eslint/parser`
+
+`npm install --save-dev ts-node-dev`
