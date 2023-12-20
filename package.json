@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node ./dist/main.js",
+    "start": "ts-node-dev --no-notify --exit-child ./src/main.ts",
     "lint": "eslint ./src/",
     "lint:fix": "eslint --fix ./src/"
   },
