@@ -24,6 +24,7 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 - [x] Add npm scripts.
 - [] devDependencies
   - [x] ts-node-dev
+- [] Add InversifyJS
 - [] Add Jest
 - [] Add Prettier
 
