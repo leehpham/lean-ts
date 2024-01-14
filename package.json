@@ -7,7 +7,8 @@
     "build": "tsc",
     "start": "ts-node-dev --no-notify --exit-child ./src/main.ts",
     "lint": "eslint ./src/",
-    "lint:fix": "eslint --fix ./src/"
+    "lint:fix": "eslint --fix ./src/",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
