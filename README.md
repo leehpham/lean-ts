@@ -25,7 +25,7 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 - [] devDependencies
   - [x] ts-node-dev
 - [] Add InversifyJS
-- [] Add Jest
+- [x] Add Jest
 - [] Add Prettier
 
 ## Commands Used
@@ -45,3 +45,11 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 `npm install --save-dev @typescript-eslint/parser`
 
 `npm install --save-dev ts-node-dev`
+
+`npm install --save-dev jest`
+
+`npm install --save-dev ts-jest`
+
+`npm install --save-dev @types/jest`
+
+`npx ts-jest config:init`
