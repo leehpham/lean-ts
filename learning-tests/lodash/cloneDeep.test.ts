@@ -1,4 +1,4 @@
-import * as _ from "lodash";
+import { cloneDeep } from "lodash";
 
 describe("lodash:cloneDeep", () => {
   type Bar = {
@@ -16,17 +16,17 @@ describe("lodash:cloneDeep", () => {
   };
 
   test("clone should be different from original object.", () => {
-    const cloned = _.cloneDeep(input);
+    const cloned = cloneDeep(input);
     expect(cloned).not.toBe(input);
   });
 
   test("clone's values should be the same as original's", () => {
-    const cloned = _.cloneDeep(input);
+    const cloned = cloneDeep(input);
     expect(cloned).toEqual(input);
   });
 
   test("changing clone's values should not affect original's", () => {
-    const cloned = _.cloneDeep(input);
+    const cloned = cloneDeep(input);
     cloned.a = 11;
     expect(cloned.a).not.toBe(input.a);
     cloned.b.c = "world";
