@@ -27,6 +27,7 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 - [] Add InversifyJS
 - [x] Add Jest
 - [] Add Prettier
+- [] Add lodash
 
 ## Commands Used
 
@@ -53,3 +54,13 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 `npm install --save-dev @types/jest`
 
 `npx ts-jest config:init`
+
+`npm install --save lodash`
+
+`npm install --save-dev @types/lodash`
+
+## Folder Structure
+
+### learning-tests
+
+
