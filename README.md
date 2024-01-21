@@ -63,4 +63,8 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 
 ### learning-tests
 
-
+Following the idea of "keeping framework code distant",
+this is where your "learning tests" for 3rd-party frameworks/libraries should go.
+You are encouraged to write these tests because:
+- They help you learn how to use the APIs of the frameworks/libraries.
+- They act as the sanity check for when you need to migrate/update the frameworks/libraries to newer versions.
