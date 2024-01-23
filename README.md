@@ -22,12 +22,12 @@ A very lean Typescript boilerplate. This can be used for different project purpo
   - [x] Set eslint to only lint needed files.
   - [] migrate to eslint-stylistic when ESLint makes the final annoucement.
 - [x] Add npm scripts.
-- [] devDependencies
+- [x] devDependencies
   - [x] ts-node-dev
 - [] Add InversifyJS
 - [x] Add Jest
 - [] Add Prettier
-- [] Add lodash
+- [x] Add lodash
 
 ## Commands Used
 
