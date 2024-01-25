@@ -1,6 +1,10 @@
 # lean-ts
 
-A very lean Typescript boilerplate. This can be used for different project purposes.
+A very lean Typescript boilerplate.
+This can be used for different non-frontend project purposes.
+I try my best make the architecture as clean as possible so in case
+you use this boilerplate at a starting point and your project somehow grows big in the future,
+you already have a good base to support your project's growth.
 
 ## Todo
 
@@ -20,7 +24,7 @@ A very lean Typescript boilerplate. This can be used for different project purpo
     - [x] Enforce function return type.
     - [x] @typescript-eslint/explicit-member-accessibility
   - [x] Set eslint to only lint needed files.
-  - [] migrate to eslint-stylistic when ESLint makes the final annoucement.
+  - [] migrate to eslint-stylistic when ESLint makes the final announcement.
 - [x] Add npm scripts.
 - [x] devDependencies
   - [x] ts-node-dev
@@ -64,7 +68,9 @@ A very lean Typescript boilerplate. This can be used for different project purpo
 ### learning-tests
 
 Following the idea of "keeping framework code distant",
-this is where your "learning tests" for 3rd-party frameworks/libraries should go.
+this is where your "learning tests" for 3rd-party frameworks/libraries should go to.
 You are encouraged to write these tests because:
 - They help you learn how to use the APIs of the frameworks/libraries.
 - They act as the sanity check for when you need to migrate/update the frameworks/libraries to newer versions.
+
+### src
