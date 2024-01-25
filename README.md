@@ -2,9 +2,45 @@
 
 A very lean Typescript boilerplate.
 This can be used for different non-frontend project purposes.
-I try my best make the architecture as clean as possible so in case
+I try my best to make the architecture as clean as possible so in case
 you use this boilerplate at a starting point and your project somehow grows big in the future,
 you already have a good base to support your project's growth.
+
+## Usage
+
+First, clone the repo
+
+```bash
+git clone https://github.com/leehpham/lean-ts.git <project-folder-name>
+```
+
+Remove `.git`
+
+```bash
+rm -rf .git
+```
+
+Rename `"name"` field in `package.json` to your `<project-folder-name>`.
+
+Replace the content of `README.md` to your linking.
+
+## Folder Structure
+
+### learning-tests
+
+Following the idea of "keeping framework code distant",
+this is where your "learning tests" for 3rd-party frameworks/libraries should go to.
+You are encouraged to write these tests because:
+- They help you learn how to use the APIs of the frameworks/libraries.
+- They act as the sanity check for when you need to migrate/update the frameworks/libraries to newer versions.
+
+### src
+
+#### library-wrappers
+
+This is where you write wrappers for 3rd-party frameworks/libraries.
+Again, the idea of "keeping framework code distant" is embraced here.
+Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
 
 ## Todo
 
@@ -62,15 +98,3 @@ you already have a good base to support your project's growth.
 `npm install --save lodash`
 
 `npm install --save-dev @types/lodash`
-
-## Folder Structure
-
-### learning-tests
-
-Following the idea of "keeping framework code distant",
-this is where your "learning tests" for 3rd-party frameworks/libraries should go to.
-You are encouraged to write these tests because:
-- They help you learn how to use the APIs of the frameworks/libraries.
-- They act as the sanity check for when you need to migrate/update the frameworks/libraries to newer versions.
-
-### src
