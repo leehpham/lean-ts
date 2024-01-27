@@ -64,7 +64,7 @@ Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
 - [x] Add npm scripts.
 - [x] devDependencies
   - [x] ts-node-dev
-- [] Add InversifyJS
+- [x] Add InversifyJS
 - [x] Add Jest
 - [] Add Prettier
 - [x] Add lodash
@@ -98,3 +98,7 @@ Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
 `npm install --save lodash`
 
 `npm install --save-dev @types/lodash`
+
+`npm install inversify`
+
+`npm install reflect-metadata`

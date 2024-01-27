@@ -4,6 +4,8 @@
 
     /* Language and Environment */
     "target": "ES6", // es2015
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
 
     /* Modules */
     "module": "commonjs",
