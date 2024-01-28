@@ -66,7 +66,7 @@ Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
   - [x] ts-node-dev
 - [x] Add InversifyJS
 - [x] Add Jest
-- [] Add Prettier
+- [x] Add Prettier
 - [x] Add lodash
 
 ## Commands Used
@@ -102,3 +102,7 @@ Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
 `npm install inversify`
 
 `npm install reflect-metadata`
+
+`npm install prettier`
+
+`npm install --save-dev eslint-config-prettier`
