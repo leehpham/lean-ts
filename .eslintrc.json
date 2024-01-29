@@ -5,7 +5,7 @@
         "prettier" // prettier needs to be last
     ],
     "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
+    "plugins": ["@typescript-eslint", "simple-import-sort"],
     "root": true,
     "rules": {
         "quotes": "off",
@@ -25,7 +25,8 @@
             "always"
         ],
         "@typescript-eslint/explicit-function-return-type": "error",
-        "sort-imports": "error",
-        "@typescript-eslint/explicit-member-accessibility": "error"
+        "@typescript-eslint/explicit-member-accessibility": "error",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error"
     }
 }
