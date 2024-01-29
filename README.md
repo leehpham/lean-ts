@@ -106,3 +106,5 @@ Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
 `npm install prettier`
 
 `npm install --save-dev eslint-config-prettier`
+
+`npm install --save-dev eslint-plugin-simple-import-sort`
