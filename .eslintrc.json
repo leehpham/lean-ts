@@ -1,5 +1,9 @@
 {
-    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier" // prettier needs to be last
+    ],
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"],
     "root": true,
