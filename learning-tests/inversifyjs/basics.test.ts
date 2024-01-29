@@ -39,19 +39,19 @@ namespace InversifyTestBasics {
 
   @injectable()
   export class Ninja implements Warrior {
-    private _katata: Weapon;
+    private _katana: Weapon;
     private _shuriken: ThrowableWeapon;
 
     public constructor(
       @inject(TEST_TYPES.Weapon) katana: Weapon,
       @inject(TEST_TYPES.ThrowableWeapon) shuriken: ThrowableWeapon
     ) {
-      this._katata = katana;
+      this._katana = katana;
       this._shuriken = shuriken;
     }
 
     public fight(): string {
-      return this._katata.hit();
+      return this._katana.hit();
     }
 
     public sneak(): string {
