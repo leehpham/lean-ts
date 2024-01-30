@@ -15,11 +15,11 @@ namespace InversifyTestBasics {
     sneak: () => string;
   }
 
-  interface Weapon {
+  export interface Weapon {
     hit: () => string;
   }
 
-  interface ThrowableWeapon {
+  export interface ThrowableWeapon {
     throw: () => string;
   }
 
@@ -59,6 +59,24 @@ namespace InversifyTestBasics {
     }
   }
 
+  export class Samurai implements Warrior {
+    private _katana: Weapon;
+    private _shuriken: ThrowableWeapon;
+
+    public constructor(katana: Weapon, shuriken: ThrowableWeapon) {
+      this._katana = katana;
+      this._shuriken = shuriken;
+    }
+
+    public fight(): string {
+      return this._katana.hit();
+    }
+
+    public sneak(): string {
+      return this._shuriken.throw();
+    }
+  }
+
   export const container = new Container();
   container.bind<Warrior>(TEST_TYPES.Warrior).to(Ninja);
   container.bind<Weapon>(TEST_TYPES.Weapon).to(Katana);
@@ -66,7 +84,25 @@ namespace InversifyTestBasics {
 }
 
 describe("The Basics", () => {
-  test("resolving dependencies.", () => {
+  test("get a bound service object using its identifier, not its binding. Should throw errors", () => {
+    expect(() =>
+      InversifyTestBasics.container.get(InversifyTestBasics.Katana)
+    ).toThrow(Error);
+    expect(() =>
+      InversifyTestBasics.container.get(InversifyTestBasics.Katana)
+    ).toThrow(/No matching bindings/);
+  });
+
+  test("get a bound service object using its identifier. Behaviors should be the same as a regular object.", () => {
+    const boundKatana =
+      InversifyTestBasics.container.get<InversifyTestBasics.Weapon>(
+        InversifyTestBasics.TEST_TYPES.Weapon
+      );
+    const katana = new InversifyTestBasics.Katana();
+    expect(boundKatana.hit()).toBe(katana.hit());
+  });
+
+  test("let container resolve dependencies for client object registered inside it.", () => {
     const ninja =
       InversifyTestBasics.container.get<InversifyTestBasics.Warrior>(
         InversifyTestBasics.TEST_TYPES.Warrior
@@ -75,5 +111,19 @@ describe("The Basics", () => {
     const shuriken = new InversifyTestBasics.Shuriken();
     expect(ninja.fight()).toBe(katana.hit());
     expect(ninja.sneak()).toBe(shuriken.throw());
+  });
+
+  test("manually resolve dependencies for a regular client object.", () => {
+    const katana =
+      InversifyTestBasics.container.get<InversifyTestBasics.Weapon>(
+        InversifyTestBasics.TEST_TYPES.Weapon
+      );
+    const shuriken =
+      InversifyTestBasics.container.get<InversifyTestBasics.ThrowableWeapon>(
+        InversifyTestBasics.TEST_TYPES.ThrowableWeapon
+      );
+    const samurai = new InversifyTestBasics.Samurai(katana, shuriken);
+    expect(samurai.fight()).toBe(katana.hit());
+    expect(samurai.sneak()).toBe(shuriken.throw());
   });
 });
