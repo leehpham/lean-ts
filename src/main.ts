@@ -1,5 +1,5 @@
 import "reflect-metadata";
 
-main();
+main().then();
 
-function main(): void {}
+async function main(): Promise<void> {}
