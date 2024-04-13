@@ -1,4 +1,4 @@
-import { TodoItem } from "../entities/todo_item.entity";
+import { TodoItem } from "../../../../entities/todo_item.entity";
 
 export class CreateTodoItemInputDto
   implements Pick<TodoItem, "title" | "description">
