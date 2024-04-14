@@ -19,7 +19,7 @@ export class CreateTodoItemUseCase
     this._inputValidator = inputValidator;
   }
 
-  protected async handleLogic(
+  public async handleLogic(
     input: CreateTodoItemInputDto
   ): Promise<CreateTodoItemOutputDto> {
     const todoItems: TodoItem[] = [];

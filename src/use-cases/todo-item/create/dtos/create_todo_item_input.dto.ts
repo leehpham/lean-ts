@@ -4,5 +4,5 @@ export class CreateTodoItemInputDto
   implements Pick<TodoItem, "title" | "description">
 {
   public title!: string;
-  public description?: string;
+  public description!: string | null;
 }
