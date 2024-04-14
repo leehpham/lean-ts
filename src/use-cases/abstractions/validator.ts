@@ -1,3 +1,3 @@
-export interface Validator<Input> {
-  validate: (input: Input) => Promise<void>;
+export interface Validator<Input, Output = void> {
+  validate: (input: Input) => Promise<Output>;
 }
