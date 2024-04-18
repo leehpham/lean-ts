@@ -2,7 +2,7 @@
   "name": "lean-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/src/main.js",
+  "main": "./dist/main.js",
   "scripts": {
     "build": "tsc",
     "start": "ts-node-dev --no-notify --exit-child ./src/main.ts",
