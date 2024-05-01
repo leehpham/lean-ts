@@ -1,4 +1,4 @@
-import { LodashFacade } from "../library-wrappers/lodash_facade";
+import { LodashFacade } from "./lodash_facade";
 
 describe("LodashFacade.cloneDeep", () => {
   type Bar = {
@@ -11,8 +11,8 @@ describe("LodashFacade.cloneDeep", () => {
   const input: Foo = {
     a: 10,
     b: {
-      c: "hello" 
-    }
+      c: "hello",
+    },
   };
 
   test("clone should be different from original object.", () => {

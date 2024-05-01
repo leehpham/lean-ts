@@ -8,7 +8,10 @@
     "start": "ts-node-dev --no-notify --exit-child ./src/main.ts",
     "lint": "eslint ./src/",
     "lint:fix": "eslint --fix ./src/",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:learning": "jest -c ./jest.config.learning.js",
+    "test:learning:watch": "jest -c ./jest.config.learning.js --watch"
   },
   "keywords": [],
   "author": "",
