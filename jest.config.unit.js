@@ -1,3 +1,3 @@
 var config = require("./jest.config");
-config.testRegex = "learning\\.test\\.ts$";
+config.testRegex = "unit\\.test\\.ts$";
 module.exports = config;
