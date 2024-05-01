@@ -21,9 +21,9 @@ describe("LodashFacade.isEqual", () => {
       o31: "hello",
       o32: null,
       o33: {
-        o331: true
-      }
-    }
+        o331: true,
+      },
+    },
   };
 
   test("deeply equal objects are equal.", () => {
@@ -34,9 +34,9 @@ describe("LodashFacade.isEqual", () => {
         o31: "hello",
         o32: null,
         o33: {
-          o331: true
-        }
-      }
+          o331: true,
+        },
+      },
     };
     expect(LodashFacade.isEqual(obj, same)).toBe(true);
   });
@@ -49,9 +49,9 @@ describe("LodashFacade.isEqual", () => {
         o31: "hello",
         o32: null,
         o33: {
-          o331: true
-        }
-      }
+          o331: true,
+        },
+      },
     };
     expect(LodashFacade.isEqual(obj, differentNumber)).toBe(false);
   });
@@ -64,9 +64,9 @@ describe("LodashFacade.isEqual", () => {
         o31: "world",
         o32: null,
         o33: {
-          o331: true
-        }
-      }
+          o331: true,
+        },
+      },
     };
     expect(LodashFacade.isEqual(obj, differentString)).toBe(false);
   });
@@ -79,9 +79,9 @@ describe("LodashFacade.isEqual", () => {
         o31: "hello",
         o32: null,
         o33: {
-          o331: false
-        }
-      }
+          o331: false,
+        },
+      },
     };
     expect(LodashFacade.isEqual(obj, differentBoolean)).toBe(false);
   });
@@ -94,9 +94,9 @@ describe("LodashFacade.isEqual", () => {
         o31: "hello",
         o32: undefined,
         o33: {
-          o331: true
-        }
-      }
+          o331: true,
+        },
+      },
     };
     expect(LodashFacade.isEqual(obj, differentUndefined)).toBe(false);
   });
