@@ -5,6 +5,8 @@ export class CreateTodoItemInputValidator
   implements Validator<CreateTodoItemInputDto>
 {
   public async validate(input: CreateTodoItemInputDto): Promise<void> {
-    input;
+    if (input.title.length === 0) {
+      throw new Error("Title should not be empty");
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { TodoItem } from "../../../../entities/todo_item.entity";
+import { TodoItem } from "../../../../entities/abstractions/todo_item.entity";
 
 export class CreateTodoItemInputDto implements Omit<TodoItem, "id"> {
   public title!: string;

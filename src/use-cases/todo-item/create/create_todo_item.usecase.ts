@@ -1,4 +1,6 @@
-import { TodoItem } from "../../../entities/todo_item.entity";
+import { TodoItemInMem } from "../../../entities/implementations/in-mem/todo_item_in_mem.entity";
+import { Repository } from "../../../repositories/abstractions/repository";
+import { TodoItemInMemRepository } from "../../../repositories/implementations/in-mem/todo_item_in_mem.repository";
 import { UseCase } from "../../abstractions/usecase";
 import { UseCaseTemplate } from "../../abstractions/usecase_template";
 import { Validator } from "../../abstractions/validator";
@@ -11,21 +13,22 @@ export class CreateTodoItemUseCase
   implements UseCase<CreateTodoItemInputDto, CreateTodoItemOutputDto>
 {
   protected readonly _inputValidator: Validator<CreateTodoItemInputDto>;
+  private readonly _repo: Repository<TodoItemInMem>;
 
   public constructor(
-    inputValidator: Validator<CreateTodoItemInputDto> = new CreateTodoItemInputValidator()
+    inputValidator: Validator<CreateTodoItemInputDto> = new CreateTodoItemInputValidator(),
+    repo: Repository<TodoItemInMem> = new TodoItemInMemRepository()
   ) {
     super();
     this._inputValidator = inputValidator;
+    this._repo = repo;
   }
 
   public async handleLogic(
     input: CreateTodoItemInputDto
   ): Promise<CreateTodoItemOutputDto> {
-    const todoItems: TodoItem[] = [];
-    const itemToCreate: TodoItem = { ...input, id: todoItems.length + 1 };
-    todoItems.push(itemToCreate);
-    const returnedItem: CreateTodoItemOutputDto = { ...itemToCreate };
-    return returnedItem;
+    const createdItem = await this._repo.create({ ...input });
+    const outputDto: CreateTodoItemOutputDto = { ...createdItem };
+    return outputDto;
   }
 }
