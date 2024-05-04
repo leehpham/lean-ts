@@ -1,4 +1,4 @@
-import { CreateTodoItemInputValidator } from "./create_todo_item_input_validator";
+import { CreateTodoItemInputValidator } from "../../../../../../use-cases/todo-item/create/validators/create_todo_item_input_validator";
 
 describe("CreateTodoItemInputValidator", () => {
   test("empty title, throws error.", async () => {
