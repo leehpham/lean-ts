@@ -46,7 +46,15 @@ export class DatabaseInMem implements Database {
     return updatedItem;
   }
 
-  public async delete(id: number): Promise<void> {}
+  public async deleteTodoItem(id: number): Promise<void> {
+    const indexToDelete = this.state.todoItems.findIndex(
+      (item) => item.id === id
+    );
+    if (indexToDelete === -1) {
+      throw new Error(`Cannot delete TodoItem with id - ${id}`);
+    }
+    this.state.todoItems.splice(indexToDelete, 1);
+  }
 }
 
 // TODO: replace with a DI init.

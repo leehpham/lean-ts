@@ -1,3 +1,3 @@
-export interface RepoGetById<T> {
+export interface GetByIdRepo<T> {
   getById: (id: number) => Promise<T | undefined>;
 }

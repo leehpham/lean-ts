@@ -1,9 +1,9 @@
-import { Database } from "../../../databases/abstractions/database";
-import { inMemDb } from "../../../databases/implementations/in-mem/database_in_mem";
-import { TodoItemInMem } from "../../../entities/implementations/in-mem/todo_item_in_mem.entity";
-import { Repository } from "../../abstractions/repository";
+import { Database } from "../../../../databases/abstractions/database";
+import { inMemDb } from "../../../../databases/implementations/in-mem/database_in_mem";
+import { TodoItemInMem } from "../../../../entities/implementations/in-mem/todo_item_in_mem.entity";
+import { InMemRepo } from "../abstractions/in_mem_repo";
 
-export class TodoItemInMemRepository implements Repository<TodoItemInMem> {
+export class TodoItemInMemRepository implements InMemRepo<TodoItemInMem> {
   private readonly _inMemDb: Database;
 
   public constructor(db: Database = inMemDb) {
