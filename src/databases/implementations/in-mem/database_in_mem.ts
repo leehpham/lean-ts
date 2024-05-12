@@ -31,12 +31,18 @@ export class DatabaseInMem implements Database {
   }
 
   public async updateTodoItem(input: TodoItemInMem): Promise<TodoItemInMem> {
-    for (let item of this.state.todoItems) {
-      if (item.id === input.id) {
-        item = { ...input };
-        break;
-      }
+    const indexToUpdate = this.state.todoItems.findIndex(
+      (item) => item.id === input.id
+    );
+    if (indexToUpdate !== -1) {
+      this.state.todoItems[indexToUpdate] = {
+        ...this.state.todoItems[indexToUpdate],
+        ...input,
+      };
+    } else {
+      throw new Error(`Cannot find TodoItem with id - ${input.id} to update.`);
     }
+
     const updatedItem = this.state.todoItems.find(
       (item) => item.id === input.id
     );
