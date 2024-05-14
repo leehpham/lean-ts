@@ -1,31 +1,34 @@
-import { TodoItem } from "../../../entities/todo_item.entity";
-import { UseCase } from "../../abstractions/usecase";
+import { TodoItemInMem } from "../../../entities/implementations/in-mem/todo_item_in_mem.entity";
+import { CreateRepo } from "../../../repositories/abstractions/create/create_repo";
+import { CreateInMemRepo } from "../../../repositories/implementations/in-mem/abstractions/create/create_in_mem_repo";
+import { TodoItemInMemRepoImpl } from "../../../repositories/implementations/in-mem/implementations/todo-item/implementations/todo_item_in_mem.repo.impl";
 import { UseCaseTemplate } from "../../abstractions/usecase_template";
 import { Validator } from "../../abstractions/validator";
 import { CreateTodoItemInputDto } from "./dtos/create_todo_item_input.dto";
 import { CreateTodoItemOutputDto } from "./dtos/create_todo_item_output.dto";
 import { CreateTodoItemInputValidator } from "./validators/create_todo_item_input_validator";
 
-export class CreateTodoItemUseCase
-  extends UseCaseTemplate<CreateTodoItemInputDto, CreateTodoItemOutputDto>
-  implements UseCase<CreateTodoItemInputDto, CreateTodoItemOutputDto>
-{
+export class CreateTodoItemUseCase extends UseCaseTemplate<
+  CreateTodoItemInputDto,
+  CreateTodoItemOutputDto
+> {
   protected readonly _inputValidator: Validator<CreateTodoItemInputDto>;
+  private readonly _repoCreate: CreateRepo<TodoItemInMem>;
 
   public constructor(
-    inputValidator: Validator<CreateTodoItemInputDto> = new CreateTodoItemInputValidator()
+    inputValidator: Validator<CreateTodoItemInputDto> = new CreateTodoItemInputValidator(),
+    repoCreate: CreateInMemRepo<TodoItemInMem> = new TodoItemInMemRepoImpl()
   ) {
     super();
     this._inputValidator = inputValidator;
+    this._repoCreate = repoCreate;
   }
 
   public async handleLogic(
     input: CreateTodoItemInputDto
   ): Promise<CreateTodoItemOutputDto> {
-    const todoItems: TodoItem[] = [];
-    const itemToCreate: TodoItem = { ...input, id: todoItems.length + 1 };
-    todoItems.push(itemToCreate);
-    const returnedItem: CreateTodoItemOutputDto = { ...itemToCreate };
-    return returnedItem;
+    const createdItem = await this._repoCreate.create({ ...input });
+    const outputDto: CreateTodoItemOutputDto = { ...createdItem };
+    return outputDto;
   }
 }
