@@ -1,5 +1,4 @@
 import { TodoItemInMem } from "../../../entities/implementations/in-mem/todo_item_in_mem.entity";
-import { CreateRepo } from "../../../repositories/abstractions/create/create_repo";
 import { CreateInMemRepo } from "../../../repositories/implementations/in-mem/abstractions/create/create_in_mem_repo";
 import { TodoItemInMemRepoImpl } from "../../../repositories/implementations/in-mem/implementations/todo-item/implementations/todo_item_in_mem.repo.impl";
 import { UseCaseTemplate } from "../../abstractions/usecase_template";
@@ -13,7 +12,7 @@ export class CreateTodoItemUseCase extends UseCaseTemplate<
   CreateTodoItemOutputDto
 > {
   protected readonly _inputValidator: Validator<CreateTodoItemInputDto>;
-  private readonly _repoCreate: CreateRepo<TodoItemInMem>;
+  private readonly _repoCreate: CreateInMemRepo<TodoItemInMem>;
 
   public constructor(
     inputValidator: Validator<CreateTodoItemInputDto> = new CreateTodoItemInputValidator(),
