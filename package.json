@@ -11,7 +11,7 @@
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "test:learning": "jest -c ./jest.config.learning.js",
-    "test:learning:watch": "jest -c ./jest.config.learning.js --watch",
+    "test:learning:watch": "npm run test:learning -- --watch",
     "test:unit": "jest -c ./jest.config.unit.js",
     "test:unit:watch": "jest -c ./jest.config.unit.js --watch"
   },
