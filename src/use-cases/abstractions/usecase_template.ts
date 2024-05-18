@@ -1,10 +1,10 @@
+import { InputValidator } from "./input_validator";
 import { UseCase } from "./usecase";
-import { Validator } from "./validator";
 
 export abstract class UseCaseTemplate<Input, Output>
   implements UseCase<Input, Output>
 {
-  protected abstract _inputValidator: Validator<Input>;
+  protected abstract _inputValidator: InputValidator<Input>;
 
   public async execute(input: Input): Promise<Output> {
     await this._inputValidator.validate(input);
