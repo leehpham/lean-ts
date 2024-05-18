@@ -2,3 +2,4 @@ dist
 jest.config.js
 jest.config.learning.js
 jest.config.unit.js
+jest.config.integration.js
