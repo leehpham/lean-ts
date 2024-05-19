@@ -1,7 +1,7 @@
 import { TodoItemInMem } from "../../../../../entities/implementations/in-mem/todo_item_in_mem.entity";
 import { CreateInMemRepo } from "../../../../../repositories/implementations/in-mem/abstractions/create/create_in_mem_repo";
-import { CreateTodoItemUseCase } from "../../../../../use-cases/todo-item/create/create_todo_item.usecase";
-import { CreateTodoItemInputDto } from "../../../../../use-cases/todo-item/create/dtos/create_todo_item_input.dto";
+import { CreateTodoItemUseCase } from "../../../../../use-cases/implementations/todo-item/create/create_todo_item.usecase";
+import { CreateTodoItemInputDto } from "../../../../../use-cases/implementations/todo-item/create/dtos/create_todo_item_input.dto";
 
 describe("CreateTodoItemUsecase", () => {
   test("valid input, new TodoItem is created", async () => {

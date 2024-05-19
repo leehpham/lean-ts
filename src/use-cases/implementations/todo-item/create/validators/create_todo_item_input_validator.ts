@@ -1,4 +1,4 @@
-import { InputValidator } from "../../../abstractions/input_validator";
+import { InputValidator } from "../../../../abstractions/input_validator";
 import { CreateTodoItemInputDto } from "../dtos/create_todo_item_input.dto";
 
 export class CreateTodoItemInputValidator

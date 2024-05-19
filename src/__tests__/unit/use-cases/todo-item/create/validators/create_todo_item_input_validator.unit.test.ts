@@ -1,5 +1,5 @@
-import { CreateTodoItemInputDto } from "../../../../../../use-cases/todo-item/create/dtos/create_todo_item_input.dto";
-import { CreateTodoItemInputValidator } from "../../../../../../use-cases/todo-item/create/validators/create_todo_item_input_validator";
+import { CreateTodoItemInputDto } from "../../../../../../use-cases/implementations/todo-item/create/dtos/create_todo_item_input.dto";
+import { CreateTodoItemInputValidator } from "../../../../../../use-cases/implementations/todo-item/create/validators/create_todo_item_input_validator";
 
 describe("CreateTodoItemInputValidator", () => {
   const validator = new CreateTodoItemInputValidator();
