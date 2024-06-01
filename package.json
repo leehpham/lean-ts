@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "lodash": "*",
-    "reflect-metadata": "*"
+    "reflect-metadata": "*",
+    "typedi": "*"
   }
 }
