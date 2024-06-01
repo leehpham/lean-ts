@@ -36,6 +36,6 @@
   "dependencies": {
     "lodash": "*",
     "reflect-metadata": "*",
-    "typedi": "^0.10.0"
+    "typedi": "*"
   }
 }
