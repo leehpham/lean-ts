@@ -46,9 +46,13 @@ describe("constructor", () => {
     });
     const input = `   ${name}  `;
 
-    const table = makeTable<Foo>(input);
+    const trimSpy = jest.spyOn(String.prototype, "trim");
+    makeTable<Foo>(input);
 
-    expect(table.name).toBe(name);
+    expect(trimSpy).toHaveBeenCalled();
+    expect(trimSpy).toHaveReturnedWith(name);
+
+    trimSpy.mockRestore();
   });
 });
 
@@ -64,6 +68,20 @@ describe("insert", () => {
 });
 
 describe("get", () => {
+  test("input key with empty spaces is trimmed, passed", () => {
+    const table = makeTable<Foo>("foo");
+    const fakeKey = faker.number.int();
+    const input = `   ${fakeKey}   `;
+
+    const trimSpy = jest.spyOn(String.prototype, "trim");
+    table.get(input);
+
+    expect(trimSpy).toHaveBeenCalled();
+    expect(trimSpy).toHaveReturnedWith(fakeKey.toString());
+
+    trimSpy.mockRestore();
+  });
+
   test("get data by key, returns data", () => {
     const table = makeTable<Foo>("foo");
     const data = makeFoo();
@@ -76,7 +94,24 @@ describe("get", () => {
 });
 
 describe("update", () => {
-  test("existing data doesn't exist, returns false", () => {
+  test("input key with empty spaces is trimmed, passed", () => {
+    const table = makeTable<Foo>("foo");
+    const fakeKey = faker.number.int();
+    const inputKey = `   ${fakeKey}   `;
+    const data: Partial<Foo> = {
+      bar: faker.number.int(),
+    };
+
+    const trimSpy = jest.spyOn(String.prototype, "trim");
+    table.update(inputKey, data);
+
+    expect(trimSpy).toHaveBeenCalled();
+    expect(trimSpy).toHaveReturnedWith(fakeKey.toString());
+
+    trimSpy.mockRestore();
+  });
+
+  test("data doesn't exist, returns false", () => {
     const table = makeTable<Foo>("foo");
     const inputKey = faker.string.numeric();
     const inputData: Partial<Foo> = {
@@ -86,5 +121,21 @@ describe("update", () => {
     const output = table.update(inputKey, inputData);
 
     expect(output).toBe(false);
+  });
+
+  test("data exists, updates data and returns true", () => {
+    const table = makeTable<Foo>("foo");
+    const dataToInsert = makeFoo();
+    const insertedKey = table.insert(dataToInsert);
+    const updateInput: Partial<Foo> = {
+      bar: faker.number.int(),
+      baz: faker.string.alphanumeric(),
+    };
+
+    const output = table.update(insertedKey, updateInput);
+    const updatedData = table.get(insertedKey);
+
+    expect(output).toBe(true);
+    expect(updatedData).toEqual({ ...dataToInsert, ...updateInput });
   });
 });

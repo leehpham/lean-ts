@@ -3,7 +3,7 @@ import { InMemTableOps } from "./table_ops";
 
 export class InMemTable<T> implements InMemTableOps<T> {
   private _name: string;
-  private _data: Map<string, T>;
+  private readonly _data: Map<string, T>;
 
   public constructor(name: string) {
     name = name.trim();
@@ -42,6 +42,7 @@ export class InMemTable<T> implements InMemTableOps<T> {
   }
 
   public get(key: string): T | undefined {
+    key = key.trim();
     return this._data.get(key);
   }
 
