@@ -139,3 +139,40 @@ describe("update", () => {
     expect(updatedData).toEqual({ ...dataToInsert, ...updateInput });
   });
 });
+
+describe("delete", () => {
+  test("input key with white spaces is trimmed, passed", () => {
+    const table = makeTable<Foo>("foo");
+    const inputKey = faker.string.numeric();
+    const input = `   ${inputKey}   `;
+
+    const trimSpy = jest.spyOn(String.prototype, "trim");
+    table.delete(input);
+
+    expect(trimSpy).toHaveBeenCalledTimes(1);
+    expect(trimSpy).toHaveReturnedWith(inputKey);
+
+    trimSpy.mockRestore();
+  });
+
+  test("delete non-existing item, returns false", () => {
+    const table = makeTable<Foo>("foo");
+    const input = faker.string.numeric();
+
+    const output = table.delete(input);
+
+    expect(output).toBe(false);
+  });
+
+  test("delete existing item, returns true", () => {
+    const table = makeTable<Foo>("foo");
+    const data = makeFoo();
+    const key = table.insert(data);
+
+    const output = table.delete(key);
+    const deleted = table.get(key);
+
+    expect(output).toBe(true);
+    expect(deleted).toBeUndefined();
+  });
+});

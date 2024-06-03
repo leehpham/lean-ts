@@ -55,4 +55,9 @@ export class InMemTable<T> implements InMemTableOps<T> {
     Object.assign(existingData, data);
     return true;
   }
+
+  public delete(key: string): boolean {
+    key = key.trim();
+    return this._data.delete(key);
+  }
 }
