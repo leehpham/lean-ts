@@ -36,7 +36,11 @@ export class InMemTable<T> implements InMemTableOps<T> {
   }
 
   public insert(data: T): string {
-    const key = (this._data.size + 1).toString();
+    const key = (
+      Array.from(this._data.keys())
+        .map((key) => parseInt(key))
+        .reduce((prev, curr) => Math.max(prev, curr), 0) + 1
+    ).toString();
     this._data.set(key, data);
     return key;
   }
