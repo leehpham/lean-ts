@@ -1,9 +1,9 @@
 import "reflect-metadata";
 
-import { UseCase } from "./use-cases/abstractions/usecase";
-import { CreateTodoItemUseCase } from "./use-cases/implementations/todo-item/create/create_todo_item.usecase";
-import { CreateTodoItemInputDto } from "./use-cases/implementations/todo-item/create/dtos/create_todo_item_input.dto";
-import { CreateTodoItemOutputDto } from "./use-cases/implementations/todo-item/create/dtos/create_todo_item_output.dto";
+import { UseCase } from "./use-cases/abstrs/usecase";
+import { CreateTodoItemUseCase } from "./use-cases/impls/todo-item/create/usecase";
+import { CreateTodoItemInputDto } from "./use-cases/impls/todo-item/create/dtos/input.dto";
+import { CreateTodoItemOutputDto } from "./use-cases/impls/todo-item/create/dtos/output.dto";
 
 main().then();
 
