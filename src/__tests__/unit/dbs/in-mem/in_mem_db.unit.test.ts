@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-import { InMemDb } from "../../../../dbs/impls/in-mem/in_mem_db";
+import { InMemDb } from "../../../../dbs/impls/in-mem/db";
 
 type Foo = {
   foo: string;
@@ -8,14 +8,14 @@ type Foo = {
   baz: boolean;
 };
 
-function makeDb(): InMemDb {
-  return new InMemDb();
+function getDb(): InMemDb {
+  return InMemDb.instance;
 }
 
 describe("InMemDb", () => {
   describe("createTable", () => {
     test("input name with whitespaces is trimmed, passed", () => {
-      const db = makeDb();
+      const db = getDb();
       const inputName = faker.string.alpha();
 
       const trimSpy = jest.spyOn(String.prototype, "trim");
@@ -28,14 +28,14 @@ describe("InMemDb", () => {
     });
 
     test("empty string as input name, throws error", () => {
-      const db = makeDb();
+      const db = getDb();
 
       expect(() => db.createTable<Foo>("")).toThrow(Error);
       expect(() => db.createTable<Foo>("")).toThrow(/empty/);
     });
 
     test("a table with the same name already exists, throws error", () => {
-      const db = makeDb();
+      const db = getDb();
       const name = faker.string.alpha();
       db.createTable<Foo>(name);
 
@@ -46,7 +46,7 @@ describe("InMemDb", () => {
 
   describe("getTable", () => {
     test("get a non existing table, returns undefined", () => {
-      const db = makeDb();
+      const db = getDb();
       const name = faker.string.alpha();
 
       const output = db.getTable<Foo>(name);
@@ -54,7 +54,7 @@ describe("InMemDb", () => {
     });
 
     test("get an existing table, returns that table", () => {
-      const db = makeDb();
+      const db = getDb();
       const tableName = faker.string.alpha();
       const createdTable = db.createTable<Foo>(tableName);
 

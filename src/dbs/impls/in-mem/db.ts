@@ -1,11 +1,20 @@
-import { InMemDbOps } from "./in_mem_db_ops";
+import { InMemDbOps } from "./db_ops";
 import { InMemTable } from "./table";
 
 export class InMemDb implements InMemDbOps {
+  private static _instance: InMemDb | undefined;
+
   private readonly _tables: Map<string, InMemTable<unknown>>;
 
-  public constructor() {
+  private constructor() {
     this._tables = new Map();
+  }
+
+  public static get instance(): InMemDb {
+    if (!InMemDb._instance) {
+      InMemDb._instance = new InMemDb();
+    }
+    return InMemDb._instance;
   }
 
   public createTable<T>(name: string): InMemTable<T> {
