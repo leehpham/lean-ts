@@ -1,4 +1,4 @@
-import { InMemTableConsts } from "./constants/table_consts";
+import { InMemTableConsts as Consts } from "./constants/table_consts";
 import { InMemTableOps } from "./table_ops";
 
 export class InMemTable<T> implements InMemTableOps<T> {
@@ -26,27 +26,21 @@ export class InMemTable<T> implements InMemTableOps<T> {
 
   private validateName(input: string): void {
     if (input.length === 0) {
-      throw new Error("Table name should not be empty");
+      throw new Error(Consts.NAME.errs.empty);
     }
-    if (input.length > InMemTableConsts.NAME.maxLength) {
-      throw new Error(
-        `Table name should not be longer than ${InMemTableConsts.NAME.maxLength}.`
-      );
+    if (input.length > Consts.NAME.maxLength) {
+      throw new Error(Consts.NAME.errGens.lengthExceeded());
     }
   }
 
   public insert(data: T): string {
-    try {
-      const key = (
-        Array.from(this._data.keys())
-          .map((key) => parseInt(key))
-          .reduce((prev, curr) => Math.max(prev, curr), 0) + 1
-      ).toString();
-      this._data.set(key, data);
-      return key;
-    } catch (err) {
-      throw new Error();
-    }
+    const key = (
+      Array.from(this._data.keys())
+        .map((key) => parseInt(key))
+        .reduce((prev, curr) => Math.max(prev, curr), 0) + 1
+    ).toString();
+    this._data.set(key, data);
+    return key;
   }
 
   public get(key: string): T | undefined {

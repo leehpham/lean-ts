@@ -1,6 +1,6 @@
-import { InMemRepo } from "./in_mem_repo";
+import { InMemRepo } from "./mem_repo";
 
-export abstract class BaseInMemRepo<T> implements InMemRepo<T> {
+export abstract class BaseMemRepo<T> implements InMemRepo<T> {
   public abstract create(input: Omit<T, "id">): Promise<T>;
 
   public abstract getById(id: number): Promise<T | undefined>;
