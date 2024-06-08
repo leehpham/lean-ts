@@ -1,7 +1,7 @@
 import { InMemTableConsts as Consts } from "./constants/table_consts";
-import { InMemTableOps } from "./table_ops";
+import { MemTableOps } from "./table_ops";
 
-export class InMemTable<T> implements InMemTableOps<T> {
+export class MemTable<T> implements MemTableOps<T> {
   private _name: string;
   private readonly _data: Map<string, T>;
 
@@ -46,6 +46,10 @@ export class InMemTable<T> implements InMemTableOps<T> {
   public get(key: string): T | undefined {
     key = key.trim();
     return this._data.get(key);
+  }
+
+  public getAll(): T[] {
+    return Array.from(this._data.values());
   }
 
   public update(key: string, data: Partial<T>): boolean {

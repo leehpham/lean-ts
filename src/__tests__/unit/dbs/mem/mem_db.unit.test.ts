@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-import { InMemDb } from "../../../../dbs/impls/in-mem/db";
+import { MemDb } from "../../../../dbs/impls/mem/db";
 
 type Foo = {
   foo: string;
@@ -8,8 +8,8 @@ type Foo = {
   baz: boolean;
 };
 
-function getDb(): InMemDb {
-  return InMemDb.instance;
+function getDb(): MemDb {
+  return MemDb.instance;
 }
 
 describe("InMemDb", () => {

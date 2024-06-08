@@ -1,15 +1,15 @@
 import { faker } from "@faker-js/faker";
 
-import { InMemTableConsts } from "../../../../dbs/impls/in-mem/constants/table_consts";
-import { InMemTable } from "../../../../dbs/impls/in-mem/table";
+import { InMemTableConsts } from "../../../../dbs/impls/mem/constants/table_consts";
+import { MemTable } from "../../../../dbs/impls/mem/table";
 
 interface Foo {
   bar: number;
   baz: string;
 }
 
-function makeTable<T>(name: string): InMemTable<T> {
-  return new InMemTable<T>(name);
+function makeTable<T>(name: string): MemTable<T> {
+  return new MemTable<T>(name);
 }
 
 function makeFoo(): Foo {
@@ -90,6 +90,30 @@ describe("get", () => {
     const output = table.get(insertedKey);
 
     expect(output).toEqual(data);
+  });
+});
+
+describe("getAll", () => {
+  test("no data is inserted, returns empty array", () => {
+    const table = makeTable<Foo>("foo");
+
+    const allData = table.getAll();
+
+    expect(allData).toBeInstanceOf(Array);
+    expect(allData).toEqual([]);
+  });
+
+  test("get all data, passed", () => {
+    const table = makeTable<Foo>("foo");
+    const data01 = makeFoo();
+    const data02 = makeFoo();
+    const data03 = makeFoo();
+    table.insert(data01);
+    table.insert(data02);
+    table.insert(data03);
+
+    const allData = table.getAll();
+    expect(allData).toEqual([data01, data02, data03]);
   });
 });
 
