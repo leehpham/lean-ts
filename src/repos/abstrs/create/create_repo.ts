@@ -1,3 +1,3 @@
 export interface CreateRepo<T> {
-  create: (input: Omit<T, "id">) => Promise<T>;
+  create: (input: T) => Promise<T & { id: number }>;
 }

@@ -1,22 +1,27 @@
+import { Service } from "typedi";
+
 import { MemDb } from "../../../../../../dbs/impls/mem/db";
 import { MemTable } from "../../../../../../dbs/impls/mem/table";
-import { TodoItemInMem } from "../../../../../../entities/impls/in-mem/todo_item_in_mem.entity";
+import { TodoItemMem } from "../../../../../../entities/impls/in-mem/todo_item_in_mem.entity";
 import { BaseMemRepo } from "../../../abstrs/base_mem_repo";
 import { TodoItemMemRepo } from "../abstrs/todo_item_mem.repo";
 import { TodoItemMemRepoConsts as Consts } from "../consts/consts";
 
+@Service()
 export class TodoItemMemRepoImpl
-  extends BaseMemRepo<TodoItemInMem>
+  extends BaseMemRepo<TodoItemMem>
   implements TodoItemMemRepo
 {
-  private readonly _table: MemTable<TodoItemInMem>;
+  private readonly _table: MemTable<TodoItemMem>;
 
   public constructor() {
     super();
-    this._table = MemDb.instance.createTable<TodoItemInMem>("TodoItem");
+    this._table = MemDb.instance.createTable<TodoItemMem>("TodoItem");
   }
 
-  public async create(input: TodoItemInMem): Promise<TodoItemInMem> {
+  public async create(
+    input: TodoItemMem
+  ): Promise<TodoItemMem & { id: number }> {
     const key = this._table.insert(input);
     const inserted = this._table.get(key);
     if (!inserted) {
@@ -24,22 +29,33 @@ export class TodoItemMemRepoImpl
         Consts.ERR_GENS.create.insertedNotFound(key, this._table.name)
       );
     }
-    return inserted;
+    return { ...inserted, id: parseInt(key) };
   }
 
-  public async getById(id: number): Promise<TodoItemInMem | undefined> {
-    return this._table.get(id.toString());
+  public async getById(id: number): Promise<TodoItemMem> {
+    const record = this._table.get(id.toString());
+    if (!record) {
+      throw new Error(Consts.ERR_GENS.getById.notFound(id));
+    }
+    return record;
   }
 
-  public async getAll(): Promise<TodoItemInMem[]> {
-    return await this._table.getAllTodoItems();
+  public async getAll(): Promise<TodoItemMem[]> {
+    return this._table.getAll();
   }
 
-  public async update(input: TodoItemInMem): Promise<TodoItemInMem> {
-    const isUpdated = this._table.update(input);
+  public async update(
+    input: TodoItemMem & { id: number }
+  ): Promise<TodoItemMem> {
+    const isUpdated = this._table.update(input.id.toString(), input);
+    if (isUpdated) {
+      return this.getById(input.id);
+    } else {
+      throw new Error(Consts.ERR_GENS.update.failed(input.id));
+    }
   }
 
   public async delete(id: number): Promise<void> {
-    return await this._table.deleteTodoItem(id);
+    this._table.delete(id.toString());
   }
 }

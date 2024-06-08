@@ -1,3 +1,3 @@
 export interface UpdateRepo<T> {
-  update: (input: T) => Promise<T>;
+  update: (input: T & { id: number }) => Promise<T>;
 }

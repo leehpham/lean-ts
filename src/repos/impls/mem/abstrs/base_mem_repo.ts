@@ -1,7 +1,7 @@
 import { InMemRepo } from "./mem_repo";
 
 export abstract class BaseMemRepo<T> implements InMemRepo<T> {
-  public abstract create(input: Omit<T, "id">): Promise<T>;
+  public abstract create(input: T): Promise<T & { id: number }>;
 
   public abstract getById(id: number): Promise<T | undefined>;
 
