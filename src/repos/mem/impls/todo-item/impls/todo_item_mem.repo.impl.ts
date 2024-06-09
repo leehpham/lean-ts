@@ -2,7 +2,7 @@ import { Service } from "typedi";
 
 import { MemDb } from "../../../../../../dbs/impls/mem/db";
 import { MemTable } from "../../../../../../dbs/impls/mem/table";
-import { TodoItemMem } from "../../../../../../entities/impls/in-mem/todo_item_in_mem.entity";
+import { TodoItemMem } from "../../../../../../entities/impls/mem/todo_item_mem.entity";
 import { BaseMemRepo } from "../../../abstrs/base_mem_repo";
 import { TodoItemMemRepo } from "../abstrs/todo_item_mem.repo";
 import { TodoItemMemRepoConsts as Consts } from "../consts/consts";
@@ -19,9 +19,7 @@ export class TodoItemMemRepoImpl
     this._table = MemDb.instance.createTable<TodoItemMem>("TodoItem");
   }
 
-  public async create(
-    input: TodoItemMem
-  ): Promise<TodoItemMem & { id: number }> {
+  public async create(input: Omit<TodoItemMem, "id">): Promise<TodoItemMem> {
     const key = this._table.insert(input);
     const inserted = this._table.get(key);
     if (!inserted) {

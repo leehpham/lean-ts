@@ -1,18 +1,19 @@
 import { faker } from "@faker-js/faker";
 
-import { InMemTableConsts } from "../../../../dbs/impls/mem/constants/table_consts";
-import { MemTable } from "../../../../dbs/impls/mem/table";
+import { InMemTableConsts } from "../../../../dbs/mem/constants/table_consts";
+import { MemTable } from "../../../../dbs/mem/table";
+import { MemEntity } from "../../../../entities/impls/mem/mem.entity";
 
-interface Foo {
+interface Foo extends MemEntity {
   bar: number;
   baz: string;
 }
 
-function makeTable<T>(name: string): MemTable<T> {
+function makeTable<T extends MemEntity>(name: string): MemTable<T> {
   return new MemTable<T>(name);
 }
 
-function makeFoo(): Foo {
+function makeFooWithoutId(): Omit<Foo, "id"> {
   return {
     bar: faker.number.int(),
     baz: faker.string.alpha(),
@@ -57,13 +58,13 @@ describe("constructor", () => {
 });
 
 describe("insert", () => {
-  test("new table, insert data, returns key", () => {
+  test("new table, insert data, returns inserted data", () => {
     const table = makeTable<Foo>("foo");
-    const data = makeFoo();
+    const data = makeFooWithoutId();
 
-    const insertedKey = table.insert(data);
+    const inserted = table.insert(data);
 
-    expect(insertedKey).toBe("1");
+    expect(inserted).toEqual({ id: inserted.id, ...data });
   });
 });
 
@@ -84,12 +85,12 @@ describe("get", () => {
 
   test("get data by key, returns data", () => {
     const table = makeTable<Foo>("foo");
-    const data = makeFoo();
-    const insertedKey = table.insert(data);
+    const data = makeFooWithoutId();
+    const inserted = table.insert(data);
 
-    const output = table.get(insertedKey);
+    const output = table.get(inserted.id);
 
-    expect(output).toEqual(data);
+    expect(output).toEqual({ id: inserted.id, ...data });
   });
 });
 
@@ -105,24 +106,30 @@ describe("getAll", () => {
 
   test("get all data, passed", () => {
     const table = makeTable<Foo>("foo");
-    const data01 = makeFoo();
-    const data02 = makeFoo();
-    const data03 = makeFoo();
-    table.insert(data01);
-    table.insert(data02);
-    table.insert(data03);
+    const data01 = makeFooWithoutId();
+    const data02 = makeFooWithoutId();
+    const data03 = makeFooWithoutId();
+    const inserted01 = table.insert(data01);
+    const inserted02 = table.insert(data02);
+    const inserted03 = table.insert(data03);
 
     const allData = table.getAll();
-    expect(allData).toEqual([data01, data02, data03]);
+
+    expect(allData).toEqual([
+      { id: inserted01.id, ...data01 },
+      { id: inserted02.id, ...data02 },
+      { id: inserted03.id, ...data03 },
+    ]);
   });
 });
 
 describe("update", () => {
   test("input key with empty spaces is trimmed, passed", () => {
     const table = makeTable<Foo>("foo");
-    const fakeKey = faker.number.int();
-    const inputKey = `   ${fakeKey}   `;
-    const data: Partial<Foo> = {
+    const toInsert = makeFooWithoutId();
+    const inserted = table.insert(toInsert);
+    const inputKey = `   ${inserted.id}   `;
+    const data: Partial<Omit<Foo, "id">> = {
       bar: faker.number.int(),
     };
 
@@ -130,7 +137,7 @@ describe("update", () => {
     table.update(inputKey, data);
 
     expect(trimSpy).toHaveBeenCalled();
-    expect(trimSpy).toHaveReturnedWith(fakeKey.toString());
+    expect(trimSpy).toHaveReturnedWith(inserted.id);
 
     trimSpy.mockRestore();
   });
@@ -138,29 +145,26 @@ describe("update", () => {
   test("data doesn't exist, returns false", () => {
     const table = makeTable<Foo>("foo");
     const inputKey = faker.string.numeric();
-    const inputData: Partial<Foo> = {
+    const inputData: Partial<Omit<Foo, "id">> = {
       bar: faker.number.int(),
     };
 
-    const output = table.update(inputKey, inputData);
-
-    expect(output).toBe(false);
+    expect(() => table.update(inputKey, inputData)).toThrow(Error);
+    expect(() => table.update(inputKey, inputData)).toThrow(/exist/);
   });
 
-  test("data exists, updates data and returns true", () => {
+  test("data exists, updates data and returns updated data.", () => {
     const table = makeTable<Foo>("foo");
-    const dataToInsert = makeFoo();
-    const insertedKey = table.insert(dataToInsert);
-    const updateInput: Partial<Foo> = {
+    const dataToInsert = makeFooWithoutId();
+    const inserted = table.insert(dataToInsert);
+    const updateInput: Partial<Omit<Foo, "id">> = {
       bar: faker.number.int(),
       baz: faker.string.alphanumeric(),
     };
 
-    const output = table.update(insertedKey, updateInput);
-    const updatedData = table.get(insertedKey);
+    const updatedData = table.update(inserted.id, updateInput);
 
-    expect(output).toBe(true);
-    expect(updatedData).toEqual({ ...dataToInsert, ...updateInput });
+    expect(updatedData).toEqual({ ...inserted, ...updateInput });
   });
 });
 
@@ -190,11 +194,11 @@ describe("delete", () => {
 
   test("delete existing item, returns true", () => {
     const table = makeTable<Foo>("foo");
-    const data = makeFoo();
-    const key = table.insert(data);
+    const data = makeFooWithoutId();
+    const inserted = table.insert(data);
 
-    const output = table.delete(key);
-    const deleted = table.get(key);
+    const output = table.delete(inserted.id);
+    const deleted = table.get(inserted.id);
 
     expect(output).toBe(true);
     expect(deleted).toBeUndefined();

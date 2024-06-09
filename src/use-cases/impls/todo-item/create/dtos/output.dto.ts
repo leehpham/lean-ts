@@ -1,4 +1,4 @@
-import { TodoItemMem } from "../../../../../entities/impls/in-mem/todo_item_in_mem.entity";
+import { TodoItemMem } from "../../../../../entities/impls/mem/todo_item_mem.entity";
 
 export type CreateTodoItemOutputDto = TodoItemMem & {
   id: number;

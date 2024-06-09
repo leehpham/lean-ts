@@ -1,7 +1,8 @@
+import { MemEntity } from "../../entities/impls/mem/mem.entity";
 import { InMemTableConsts as Consts } from "./constants/table_consts";
 import { MemTableOps } from "./table_ops";
 
-export class MemTable<T> implements MemTableOps<T> {
+export class MemTable<T extends MemEntity> implements MemTableOps<T> {
   private _name: string;
   private readonly _data: Map<string, T>;
 
@@ -33,14 +34,15 @@ export class MemTable<T> implements MemTableOps<T> {
     }
   }
 
-  public insert(data: T): string {
+  public insert(data: Omit<T, "id">): T {
     const key = (
       Array.from(this._data.keys())
         .map((key) => parseInt(key))
         .reduce((prev, curr) => Math.max(prev, curr), 0) + 1
     ).toString();
-    this._data.set(key, data);
-    return key;
+    const entity: T = { id: key, ...data } as T;
+    this._data.set(key, entity);
+    return entity;
   }
 
   public get(key: string): T | undefined {
@@ -52,14 +54,13 @@ export class MemTable<T> implements MemTableOps<T> {
     return Array.from(this._data.values());
   }
 
-  public update(key: string, data: Partial<T>): boolean {
+  public update(key: string, data: Partial<T>): T {
     key = key.trim();
     const existingData = this._data.get(key);
     if (!existingData) {
-      return false;
+      throw new Error(Consts.ERRS.insert.notExist);
     }
-    Object.assign(existingData, data);
-    return true;
+    return Object.assign(existingData, data);
   }
 
   public delete(key: string): boolean {

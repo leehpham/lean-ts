@@ -9,4 +9,10 @@ export class InMemTableConsts {
         `Table name should not be longer than ${InMemTableConsts.NAME.maxLength}.`,
     },
   };
+
+  public static readonly ERRS = {
+    insert: {
+      notExist: "Data does not exist.",
+    },
+  };
 }
