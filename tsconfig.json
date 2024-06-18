@@ -15,6 +15,7 @@
     /* Emit */
     "outDir": "./dist/",
     "removeComments": true,
+    "noEmitOnError": true,
 
     /* Interop Constraints */
     "esModuleInterop": true,
