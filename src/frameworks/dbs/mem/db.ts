@@ -1,10 +1,12 @@
+import { MemEntity } from "../../../entities/impls/mem/mem.entity";
 import { InMemDbOps } from "./db_ops";
 import { MemTable } from "./table";
 
 export class MemDb implements InMemDbOps {
   private static _instance: MemDb | undefined;
 
-  private readonly _tables: Map<string, MemTable<unknown>>;
+  // eslint-disable-next-line
+  private readonly _tables: Map<string, MemTable<any>>;
 
   private constructor() {
     this._tables = new Map();
@@ -17,7 +19,7 @@ export class MemDb implements InMemDbOps {
     return MemDb._instance;
   }
 
-  public createTable<T>(name: string): MemTable<T> {
+  public createTable<T extends MemEntity>(name: string): MemTable<T> {
     name = name.trim();
     if (name.length === 0) {
       throw new Error("Table name cannot be empty.");
@@ -30,8 +32,17 @@ export class MemDb implements InMemDbOps {
     return table;
   }
 
-  public getTable<T>(name: string): MemTable<T> | undefined {
+  public getTable<T extends MemEntity>(name: string): MemTable<T> | undefined {
     name = name.trim();
     return this._tables.get(name) as MemTable<T>;
+  }
+
+  // eslint-disable-next-line
+  public getAllTables(): Map<string, MemTable<any>> {
+    return this._tables;
+  }
+
+  public reset(): void {
+    this._tables.clear();
   }
 }

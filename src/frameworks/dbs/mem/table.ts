@@ -1,5 +1,5 @@
 import { MemEntity } from "../../../entities/impls/mem/mem.entity";
-import { InMemTableConsts as Consts } from "./constants/table_consts";
+import { InMemTableConsts as Consts } from "./table_consts";
 import { MemTableOps } from "./table_ops";
 
 export class MemTable<T extends MemEntity> implements MemTableOps<T> {
@@ -40,7 +40,7 @@ export class MemTable<T extends MemEntity> implements MemTableOps<T> {
         .map((key) => parseInt(key))
         .reduce((prev, curr) => Math.max(prev, curr), 0) + 1
     ).toString();
-    const entity: T = { id: key, ...data } as T;
+    const entity: T = { id: parseInt(key), ...data } as T;
     this._data.set(key, entity);
     return entity;
   }
@@ -54,7 +54,7 @@ export class MemTable<T extends MemEntity> implements MemTableOps<T> {
     return Array.from(this._data.values());
   }
 
-  public update(key: string, data: Partial<T>): T {
+  public update(key: string, data: Partial<Omit<T, "id">>): T {
     key = key.trim();
     const existingData = this._data.get(key);
     if (!existingData) {

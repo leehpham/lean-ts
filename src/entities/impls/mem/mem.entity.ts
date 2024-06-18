@@ -1,3 +1,3 @@
 export interface MemEntity {
-  id: string;
+  id: number;
 }

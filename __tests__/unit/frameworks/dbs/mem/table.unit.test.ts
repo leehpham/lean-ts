@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 
-import { InMemTableConsts } from "../../../../dbs/mem/constants/table_consts";
-import { MemTable } from "../../../../dbs/mem/table";
-import { MemEntity } from "../../../../entities/impls/mem/mem.entity";
+import { MemEntity } from "../../../../../src/entities/impls/mem/mem.entity";
+import { MemTable } from "../../../../../src/frameworks/dbs/mem/table";
+import { InMemTableConsts } from "../../../../../src/frameworks/dbs/mem/table_consts";
 
 interface Foo extends MemEntity {
   bar: number;
@@ -88,7 +88,7 @@ describe("get", () => {
     const data = makeFooWithoutId();
     const inserted = table.insert(data);
 
-    const output = table.get(inserted.id);
+    const output = table.get(inserted.id.toString());
 
     expect(output).toEqual({ id: inserted.id, ...data });
   });
@@ -137,7 +137,7 @@ describe("update", () => {
     table.update(inputKey, data);
 
     expect(trimSpy).toHaveBeenCalled();
-    expect(trimSpy).toHaveReturnedWith(inserted.id);
+    expect(trimSpy).toHaveReturnedWith(inserted.id.toString());
 
     trimSpy.mockRestore();
   });
@@ -162,7 +162,7 @@ describe("update", () => {
       baz: faker.string.alphanumeric(),
     };
 
-    const updatedData = table.update(inserted.id, updateInput);
+    const updatedData = table.update(inserted.id.toString(), updateInput);
 
     expect(updatedData).toEqual({ ...inserted, ...updateInput });
   });
@@ -197,8 +197,8 @@ describe("delete", () => {
     const data = makeFooWithoutId();
     const inserted = table.insert(data);
 
-    const output = table.delete(inserted.id);
-    const deleted = table.get(inserted.id);
+    const output = table.delete(inserted.id.toString());
+    const deleted = table.get(inserted.id.toString());
 
     expect(output).toBe(true);
     expect(deleted).toBeUndefined();
