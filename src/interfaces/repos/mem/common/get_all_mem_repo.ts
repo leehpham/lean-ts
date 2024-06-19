@@ -1,3 +1,5 @@
-import { GetAllRepo } from "../../../../abstrs/get/get_all_repo";
+import { MemEntity } from "../../../../entities/impls/mem/mem.entity";
 
-export interface GetAllInMemRepo<T> extends GetAllRepo<T> {}
+export interface GetAllInMemRepo<T extends MemEntity> {
+  getAll: () => T[];
+}

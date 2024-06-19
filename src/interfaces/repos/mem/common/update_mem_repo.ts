@@ -1,3 +1,3 @@
-import { UpdateRepo } from "../../../../abstrs/update/update_repo";
-
-export interface UpdateInMemRepo<T> extends UpdateRepo<T> {}
+export interface UpdateInMemRepo<T> {
+  update: (input: T) => T;
+}

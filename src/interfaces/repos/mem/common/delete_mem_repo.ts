@@ -1,3 +1,3 @@
-import { DeleteRepo } from "../../../../abstrs/delete/delete_repo";
-
-export interface DeleteInMemRepo extends DeleteRepo {}
+export interface DeleteInMemRepo {
+  delete: (id: number) => void;
+}

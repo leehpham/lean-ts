@@ -1,3 +1,5 @@
-import { GetByIdRepo } from "../../../../abstrs/get/get_by_id_repo";
+import { MemEntity } from "../../../../entities/impls/mem/mem.entity";
 
-export interface GetByIdInMemRepo<T> extends GetByIdRepo<T> {}
+export interface GetByIdInMemRepo<T extends MemEntity> {
+  getById: (id: number) => T;
+}
