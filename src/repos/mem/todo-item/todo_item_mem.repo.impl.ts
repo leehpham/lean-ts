@@ -39,19 +39,23 @@ export class TodoItemMemRepoImpl
   public getAll(): TodoItemMem[] {
     return this._table.getAll();
   }
-  //
-  // public async update(
-  //   input: TodoItemMem & { id: number }
-  // ): Promise<TodoItemMem> {
-  //   const isUpdated = this._table.update(input.id.toString(), input);
-  //   if (isUpdated) {
-  //     return this.getById(input.id);
-  //   } else {
-  //     throw new Error(Consts.ERR_GENS.update.failed(input.id));
-  //   }
-  // }
+
+  public update(
+    id: number,
+    input: Partial<Omit<TodoItemMem, "id">>
+  ): TodoItemMem {
+    this.getById(id);
+    return this._table.update(id.toString(), input);
+  }
 
   public delete(id: number): void {
-    this._table.delete(id.toString());
+    const success = this._table.delete(id.toString());
+    if (!success) {
+      throw new Error(Consts.ERR_GENS.delete.failed(id));
+    }
+  }
+
+  public deleteAll(): void {
+    this._table.deleteAll();
   }
 }

@@ -21,8 +21,8 @@ describe("CreateTodoItemUsecase", () => {
       ),
     };
     const input: CreateTodoItemInputDto = {
-      title: "title",
       description: "description",
+      title: "title",
     };
     const fakeInputVldtr: InputVldtr<CreateTodoItemInputDto> = {
       validate: jest.fn(),

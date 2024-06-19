@@ -6,4 +6,5 @@ export interface MemTableOps<T extends MemEntity> {
   getAll: () => T[];
   update: (key: string, data: Partial<Omit<T, "id">>) => T;
   delete: (key: string) => boolean;
+  deleteAll: () => void;
 }

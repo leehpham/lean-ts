@@ -67,4 +67,8 @@ export class MemTable<T extends MemEntity> implements MemTableOps<T> {
     key = key.trim();
     return this._data.delete(key);
   }
+
+  public deleteAll(): void {
+    this._data.clear();
+  }
 }

@@ -43,7 +43,7 @@ describe("constructor", () => {
 
   test("input name with empty spaces is trimmed, passed", () => {
     const name = faker.string.alpha({
-      length: { min: 1, max: InMemTableConsts.NAME.maxLength },
+      length: { max: InMemTableConsts.NAME.maxLength, min: 1 },
     });
     const input = `   ${name}  `;
 
@@ -202,5 +202,19 @@ describe("delete", () => {
 
     expect(output).toBe(true);
     expect(deleted).toBeUndefined();
+  });
+});
+
+describe("deleteAll", () => {
+  test("delete all data, passed", () => {
+    const table = makeTable<Foo>("foo");
+
+    for (let i = 0; i < 100; i++) {
+      table.insert(makeFooWithoutId());
+    }
+
+    table.deleteAll();
+
+    expect(table.getAll()).toEqual([]);
   });
 });

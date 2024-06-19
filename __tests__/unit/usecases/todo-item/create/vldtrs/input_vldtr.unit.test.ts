@@ -12,7 +12,7 @@ describe("CreateTodoItemInputValidator", () => {
   });
 
   test("empty description, throws error.", async () => {
-    const input: CreateTodoItemInputDto = { title: "title", description: "" };
+    const input: CreateTodoItemInputDto = { description: "", title: "title" };
 
     await expect(validator.validate(input)).rejects.toThrow(Error);
     await expect(validator.validate(input)).rejects.toThrow(/empty/);
