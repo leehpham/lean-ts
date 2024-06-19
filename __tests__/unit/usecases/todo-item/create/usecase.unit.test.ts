@@ -1,24 +1,17 @@
-import { TodoItemMem } from "../../../../../entities/impls/mem/todo_item_mem.entity";
-import { CreateMemRepo } from "../../../../../repos/impls/mem/abstrs/create/create_mem_repo";
-import { InputVldtr } from "../../../../../usecases/abstrs/input_vldtr";
-import { CreateTodoItemInputDto } from "../../../../../usecases/impls/todo-item/create/dtos/input.dto";
-import { CreateTodoItemUseCase } from "../../../../../usecases/impls/todo-item/create/usecase";
+import { TodoItemMem } from "../../../../../src/entities/impls/mem/todo_item_mem.entity";
+import { CreateMemRepo } from "../../../../../src/interfaces/repos/mem/common/create_mem_repo";
+import { InputVldtr } from "../../../../../src/usecases/abstrs/input_vldtr";
+import { CreateTodoItemInputDto } from "../../../../../src/usecases/impls/todo-item/create/dtos/input.dto";
+import { CreateTodoItemUseCase } from "../../../../../src/usecases/impls/todo-item/create/usecase";
 
 describe("CreateTodoItemUsecase", () => {
   test("valid input, new TodoItem is created", async () => {
     const id = 1;
 
     const fakeCreateInMemRepo: CreateMemRepo<TodoItemMem> = {
-      create: jest.fn(
-        (input: TodoItemMem): Promise<TodoItemMem & { id: number }> => {
-          return new Promise((resolve) => {
-            resolve({
-              ...input,
-              id,
-            });
-          });
-        }
-      ),
+      create: jest.fn((input: Omit<TodoItemMem, "id">): TodoItemMem => {
+        return { id, ...input };
+      }),
     };
     const input: CreateTodoItemInputDto = {
       description: "description",
@@ -33,6 +26,8 @@ describe("CreateTodoItemUsecase", () => {
       fakeCreateInMemRepo
     );
 
-    await expect(useCase.execute(input)).resolves.toEqual({ ...input, id });
+    await expect(useCase.execute(input)).resolves.toEqual({
+      created: { ...input, id },
+    });
   });
 });

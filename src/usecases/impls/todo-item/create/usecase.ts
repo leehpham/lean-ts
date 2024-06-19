@@ -1,8 +1,8 @@
 import { Inject, Service } from "typedi";
 
 import { TodoItemMem } from "../../../../entities/impls/mem/todo_item_mem.entity";
-import { CreateMemRepo } from "../../../../repos/impls/mem/abstrs/create/create_mem_repo";
-import { TodoItemMemRepoImpl } from "../../../../repos/impls/mem/impls/todo-item/impls/todo_item_mem.repo.impl";
+import { CreateMemRepo } from "../../../../interfaces/repos/mem/common/create_mem_repo";
+import { TodoItemMemRepoImpl } from "../../../../repos/mem/todo-item/todo_item_mem.repo.impl";
 import { InputVldtr } from "../../../abstrs/input_vldtr";
 import { UseCaseTemplate } from "../../../abstrs/usecase_template";
 import { CreateTodoItemInputDto } from "./dtos/input.dto";
@@ -29,11 +29,10 @@ export class CreateTodoItemUseCase extends UseCaseTemplate<
     this._repoCreate = repoCreate;
   }
 
-  public async handleLogic(
+  protected async handleLogic(
     input: CreateTodoItemInputDto
   ): Promise<CreateTodoItemOutputDto> {
-    const createdItem = await this._repoCreate.create({ ...input });
-    const outputDto: CreateTodoItemOutputDto = { ...createdItem };
-    return outputDto;
+    const createdItem = this._repoCreate.create({ ...input });
+    return { created: createdItem };
   }
 }
