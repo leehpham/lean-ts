@@ -7,7 +7,7 @@
     "build": "tsc",
     "build:watch": "npm run build -- --watch",
     "start": "ts-node-dev --no-notify --exit-child ./src/main.ts",
-    "lint": "eslint ./src/",
+    "lint": "eslint ./src/ ./__tests__",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
@@ -20,6 +20,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "*",
     "@types/jest": "*",
     "@types/lodash": "*",
     "@types/node": "*",
