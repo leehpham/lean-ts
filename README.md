@@ -20,13 +20,33 @@ Remove `.git`
 rm -rf .git
 ```
 
+Remove `package-lock.json`
+
+```bash
+rm package-lock.json
+```
+
 Rename `"name"` field in `package.json` to your `<project-folder-name>`.
 
 Replace the content of `README.md` to your linking.
 
+Install packages
+
+```bash
+npm install
+```
+
+Update packages and set their versions in `package.json`
+
+```bash
+npm update --save
+```
+
 ## Folder Structure
 
-### learning-tests
+### __tests__
+
+#### learning
 
 Following the idea of "keeping framework code distant",
 this is where your "learning tests" for 3rd-party frameworks/libraries should go to.
@@ -34,13 +54,25 @@ You are encouraged to write these tests because:
 - They help you learn how to use the APIs of the frameworks/libraries.
 - They act as the sanity check for when you need to migrate/update the frameworks/libraries to newer versions.
 
+#### unit
+
 ### src
 
-#### library-wrappers
+#### entities
+
+#### frameworks
+
+##### libs
 
 This is where you write wrappers for 3rd-party frameworks/libraries.
 Again, the idea of "keeping framework code distant" is embraced here.
 Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
+
+#### interfaces
+
+#### repos
+
+#### usecases
 
 ## Todo
 
