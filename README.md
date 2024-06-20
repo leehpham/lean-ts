@@ -131,7 +131,7 @@ Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
 
 `npm install --save-dev @types/lodash`
 
-`npm install inversify`
+`npm install typedi`
 
 `npm install reflect-metadata`
 
