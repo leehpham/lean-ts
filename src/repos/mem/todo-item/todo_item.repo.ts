@@ -1,6 +1,6 @@
 import { Service } from "typedi";
 
-import { TodoItemMem } from "../../../entities/impls/mem/todo_item_mem.entity";
+import { TodoItemMem } from "../../../entities/impls/mem/todo_item.entity";
 import { MemDb } from "../../../frameworks/dbs/mem/db";
 import { MemTable } from "../../../frameworks/dbs/mem/table";
 import { BaseMemRepo } from "../../../interfaces/repos/mem/common/base_mem_repo";

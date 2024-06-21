@@ -1,4 +1,4 @@
-import { TodoItemMem } from "../../../../../src/entities/impls/mem/todo_item_mem.entity";
+import { TodoItemMem } from "../../../../../src/entities/impls/mem/todo_item.entity";
 import { CreateMemRepo } from "../../../../../src/interfaces/repos/mem/common/create_mem_repo";
 import { InputVldtr } from "../../../../../src/usecases/abstrs/input_vldtr";
 import { CreateTodoItemInputDto } from "../../../../../src/usecases/impls/todo-item/create/dtos/input.dto";

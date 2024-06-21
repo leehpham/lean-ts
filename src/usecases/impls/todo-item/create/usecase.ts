@@ -1,8 +1,8 @@
 import { Inject, Service } from "typedi";
 
-import { TodoItemMem } from "../../../../entities/impls/mem/todo_item_mem.entity";
+import { TodoItemMem } from "../../../../entities/impls/mem/todo_item.entity";
 import { CreateMemRepo } from "../../../../interfaces/repos/mem/common/create_mem_repo";
-import { TodoItemMemRepoImpl } from "../../../../repos/mem/todo-item/todo_item_mem.repo.impl";
+import { TodoItemMemRepoImpl } from "../../../../repos/mem/todo-item/todo_item.repo";
 import { InputVldtr } from "../../../abstrs/input_vldtr";
 import { UseCaseTemplate } from "../../../abstrs/usecase_template";
 import { CreateTodoItemInputDto } from "./dtos/input.dto";

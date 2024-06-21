@@ -1,4 +1,4 @@
-export interface TodoItem {
+export interface ITodoItem {
   title: string;
   description?: string | null;
 }
