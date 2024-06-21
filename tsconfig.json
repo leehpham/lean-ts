@@ -3,7 +3,7 @@
     /* Projects */
 
     /* Language and Environment */
-    "target": "ES6", // es2015
+    "target": "es2019",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
 
