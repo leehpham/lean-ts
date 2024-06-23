@@ -13,6 +13,7 @@
     /* JavaScript Support */
 
     /* Emit */
+    "sourceMap": true,
     "outDir": "./dist/",
     "removeComments": true,
     "noEmitOnError": true,
