@@ -1,32 +1,24 @@
 {
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier" // prettier needs to be last
-    ],
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "simple-import-sort"],
-    "root": true,
-    "rules": {
-        "quotes": "off",
-        "@typescript-eslint/quotes": [
-            "error",
-            "double"
-        ],
-        "semi": "off",
-        "@typescript-eslint/semi": [
-            "error",
-            "always"
-        ],
-        "@typescript-eslint/member-delimiter-style": "error",
-        "@typescript-eslint/method-signature-style": "error",
-        "eol-last": [
-            "error",
-            "always"
-        ],
-        "@typescript-eslint/explicit-function-return-type": "error",
-        "@typescript-eslint/explicit-member-accessibility": "error",
-        "simple-import-sort/imports": "error",
-        "simple-import-sort/exports": "error"
-    }
+  "extends": [
+    // Turn on all recommended rules.
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier" // prettier needs to be last
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "root": true,
+  "rules": {
+    "quotes": "off",
+    "@typescript-eslint/quotes": ["error", "double"],
+    "semi": "off",
+    "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/member-delimiter-style": "error",
+    "@typescript-eslint/method-signature-style": "error",
+    "eol-last": ["error", "always"],
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/explicit-member-accessibility": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
 }
