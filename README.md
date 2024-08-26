@@ -113,9 +113,33 @@ Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
 
 `npm install --save-dev eslint`
 
-`npm install --save-dev @typescript-eslint/eslint-plugin`
+```bash
+# This will help replace eslint:recommended.
+# This is from ESLint site. 
+npm install --save-dev @eslint/js
+```
 
-`npm install --save-dev @typescript-eslint/parser`
+```bash
+# Typing support for @eslint/js
+# This is from typescript-eslint site.
+npm install --save-dev @types/eslint__js
+
+```
+
+```bash
+# This is from typescript-eslint site.
+npm install --save-dev typescript-eslint
+```
+
+```bash
+# TODO: remove
+npm install --save-dev @typescript-eslint/eslint-plugin
+```
+
+```bash
+# TODO: remove
+npm install --save-dev @typescript-eslint/parser
+```
 
 `npm install --save-dev ts-node-dev`
 
