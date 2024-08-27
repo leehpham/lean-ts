@@ -1,63 +1,10 @@
-// import typescriptEslint from "@typescript-eslint/eslint-plugin";
-// import simpleImportSort from "eslint-plugin-simple-import-sort";
-// import tsParser from "@typescript-eslint/parser";
-// import path from "node:path";
-// import { fileURLToPath } from "node:url";
-// import js from "@eslint/js";
-// import { FlatCompat } from "@eslint/eslintrc";
-//
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// const compat = new FlatCompat({
-//   baseDirectory: __dirname,
-//   recommendedConfig: js.configs.recommended,
-//   allConfig: js.configs.all,
-// });
-//
-// export default [
-//   {
-//     ignores: [
-//       "**/dist",
-//       "**/jest.config.js",
-//       "**/jest.config.learning.js",
-//       "**/jest.config.unit.js",
-//       "**/jest.config.integration.js",
-//     ],
-//   },
-//   ...compat.extends(
-//     "eslint:recommended",
-//     "plugin:@typescript-eslint/recommended",
-//     "prettier"
-//   ),
-//   {
-//     plugins: {
-//       "@typescript-eslint": typescriptEslint,
-//       "simple-import-sort": simpleImportSort,
-//     },
-//
-//     languageOptions: {
-//       parser: tsParser,
-//     },
-//
-//     rules: {
-//       quotes: "off",
-//       "@typescript-eslint/quotes": ["error", "double"],
-//       semi: "off",
-//       "@typescript-eslint/semi": ["error", "always"],
-//       "@typescript-eslint/member-delimiter-style": "error",
-//       "@typescript-eslint/method-signature-style": "error",
-//       "eol-last": ["error", "always"],
-//       "@typescript-eslint/explicit-function-return-type": "error",
-//       "@typescript-eslint/explicit-member-accessibility": "error",
-//       "simple-import-sort/imports": "error",
-//       "simple-import-sort/exports": "error",
-//     },
-//   },
-// ];
-
 import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import stylisticJs from "@stylistic/eslint-plugin-js";
+import stylisticTS from "@stylistic/eslint-plugin-ts";
+import tsEslintPlugin from "@typescript-eslint/eslint-plugin";
+import eslintConfigPrettier from "eslint-config-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
@@ -71,16 +18,26 @@ export default tseslint.config(
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
+  eslintConfigPrettier,
   {
     plugins: {
+      "@stylistic/js": stylisticJs,
+      "@stylistic/ts": stylisticTS,
+      "@typescript-eslint-plugin": tsEslintPlugin,
       "simple-import-sort": simpleImportSort,
     },
   },
   {
     rules: {
+      "@stylistic/ts/quotes": ["error", "double"],
+      "@stylistic/ts/semi": ["error", "always"],
+      "@stylistic/ts/member-delimiter-style": "error",
+      "@typescript-eslint-plugin/method-signature-style": "error",
+      "@stylistic/js/eol-last": ["error", "always"],
+      "@typescript-eslint-plugin/explicit-function-return-type": "error",
+      "@typescript-eslint-plugin/explicit-member-accessibility": "error",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
     },
   }
 );
-
