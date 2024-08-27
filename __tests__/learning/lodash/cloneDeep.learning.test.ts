@@ -11,8 +11,8 @@ describe("lodash:cloneDeep", () => {
   const input: Foo = {
     a: 10,
     b: {
-      c: "hello" 
-    }
+      c: "hello",
+    },
   };
 
   test("clone should be different from original object.", () => {

@@ -1,4 +1,5 @@
 import { TodoItemMem } from "../../../entities/impls/mem/todo_item.entity";
 import { InMemRepo } from "./common/mem_repo";
 
-export interface TodoItemMemRepo extends InMemRepo<TodoItemMem> {}
+// export interface TodoItemMemRepo extends InMemRepo<TodoItemMem> {}
+export type TodoItemMemRepo = InMemRepo<TodoItemMem>;

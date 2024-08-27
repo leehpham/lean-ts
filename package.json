@@ -20,12 +20,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.9.1",
     "@faker-js/faker": "^8.4.1",
+    "@stylistic/eslint-plugin-js": "^2.6.4",
+    "@stylistic/eslint-plugin-ts": "^2.6.4",
+    "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.17.7",
     "@types/node": "^22.1.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
@@ -33,7 +36,8 @@
     "prettier": "^3.3.3",
     "ts-jest": "^29.2.4",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0"
   },
   "dependencies": {
     "lodash": "^4.17.21",
