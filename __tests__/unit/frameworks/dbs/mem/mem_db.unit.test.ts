@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 
-import { MemEntity } from "../../../../../src/infra/persistence/mem/models/mem.entity";
 import { MemDb } from "../../../../../src/infra/persistence/mem/impls/db";
 import { InMemTableConsts } from "../../../../../src/infra/persistence/mem/impls/table_consts";
+import { MemEntity } from "../../../../../src/infra/persistence/mem/models/mem.entity";
 
 type Foo = MemEntity & {
   foo: string;

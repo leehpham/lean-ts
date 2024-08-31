@@ -1,10 +1,10 @@
 import { Service } from "typedi";
 
-import { TodoItemMem } from "../../models/todo_item.entity";
-import { MemDb } from "../../impls/db";
-import { MemTable } from "../../impls/table";
 import { BaseMemRepo } from "../../../../../core/repos/mem/common/base_mem_repo";
 import { TodoItemMemRepo } from "../../../../../core/repos/mem/todo_item_mem.repo";
+import { MemDb } from "../../impls/db";
+import { MemTable } from "../../impls/table";
+import { TodoItemMem } from "../../models/todo_item.entity";
 import { TodoItemMemRepoConsts as Consts } from "./consts";
 
 @Service()
