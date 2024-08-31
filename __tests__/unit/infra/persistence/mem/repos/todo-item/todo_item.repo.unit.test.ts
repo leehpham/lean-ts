@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 
-import { TodoItemMem } from "../../../../src/infra/persistence/mem/models/todo_item.entity";
-import { TodoItemMemRepoConsts as Consts } from "../../../../src/infra/persistence/mem/repos/todo-item/consts";
-import { TodoItemMemRepoImpl } from "../../../../src/infra/persistence/mem/repos/todo-item/todo_item.repo";
+import { TodoItemMem } from "../../../../../../../src/infra/persistence/mem/models/todo_item.entity";
+import { TodoItemMemRepoConsts as Consts } from "../../../../../../../src/infra/persistence/mem/repos/todo-item/consts";
+import { TodoItemMemRepoImpl } from "../../../../../../../src/infra/persistence/mem/repos/todo-item/todo_item.repo";
 
 function makeRepo(): TodoItemMemRepoImpl {
   return new TodoItemMemRepoImpl();
