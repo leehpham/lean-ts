@@ -1,8 +1,8 @@
-import { MemEntity } from "../models/mem.entity";
+import { IMemEntity } from "../models/i_mem_entity";
 import { InMemTableConsts as Consts } from "./table_consts";
 import { MemTableOps } from "./table_ops";
 
-export class MemTable<T extends MemEntity> implements MemTableOps<T> {
+export class MemTable<T extends IMemEntity> implements MemTableOps<T> {
   private _name: string;
   private readonly _data: Map<string, T>;
 

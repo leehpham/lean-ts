@@ -1,11 +1,11 @@
 import { Inject, Service } from "typedi";
 
-import { CreateMemRepo } from "../../../../../core/repos/mem/common/create_mem_repo";
+import { ICreateMemRepo } from "../../../../../core/repos/mem/common/i_create_mem_repo";
 import { TodoItemMem } from "../../../../../infra/persistence/mem/models/todo_item.entity";
 import { TodoItemMemRepoImpl } from "../../../../../infra/persistence/mem/repos/todo-item/todo_item.repo";
-import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/input.dto";
-import { CreateTodoItemOutputDto } from "../../../../dto/todo-item/create/output.dto";
-import { InputVldtr } from "../../../abstrs/input_vldtr";
+import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/input_dto";
+import { CreateTodoItemOutputDto } from "../../../../dto/todo-item/create/output_dto";
+import { IInputVldtr } from "../../../abstrs/i_input_vldtr";
 import { UseCaseTemplate } from "../../../abstrs/usecase_template";
 import { CreateTodoItemInputValidator } from "./input_vldtr";
 
@@ -14,15 +14,15 @@ export class CreateTodoItemUseCase extends UseCaseTemplate<
   CreateTodoItemInputDto,
   CreateTodoItemOutputDto
 > {
-  protected readonly _inputValidator: InputVldtr<CreateTodoItemInputDto>;
+  protected readonly _inputValidator: IInputVldtr<CreateTodoItemInputDto>;
 
-  private readonly _repoCreate: CreateMemRepo<TodoItemMem>;
+  private readonly _repoCreate: ICreateMemRepo<TodoItemMem>;
 
   public constructor(
     @Inject(() => CreateTodoItemInputValidator)
-    inputValidator: InputVldtr<CreateTodoItemInputDto>,
+    inputValidator: IInputVldtr<CreateTodoItemInputDto>,
     @Inject(() => TodoItemMemRepoImpl)
-    repoCreate: CreateMemRepo<TodoItemMem>
+    repoCreate: ICreateMemRepo<TodoItemMem>
   ) {
     super();
     this._inputValidator = inputValidator;

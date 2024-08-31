@@ -1,4 +1,4 @@
-import { MemEntity } from "../models/mem.entity";
+import { IMemEntity } from "../models/i_mem_entity";
 import { InMemDbOps } from "./db_ops";
 import { MemTable } from "./table";
 
@@ -19,7 +19,7 @@ export class MemDb implements InMemDbOps {
     return MemDb._instance;
   }
 
-  public createTable<T extends MemEntity>(name: string): MemTable<T> {
+  public createTable<T extends IMemEntity>(name: string): MemTable<T> {
     name = name.trim();
     if (name.length === 0) {
       throw new Error("Table name cannot be empty.");
@@ -32,7 +32,7 @@ export class MemDb implements InMemDbOps {
     return table;
   }
 
-  public getTable<T extends MemEntity>(name: string): MemTable<T> | undefined {
+  public getTable<T extends IMemEntity>(name: string): MemTable<T> | undefined {
     name = name.trim();
     return this._tables.get(name) as MemTable<T>;
   }
