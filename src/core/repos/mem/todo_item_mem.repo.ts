@@ -1,5 +1,0 @@
-import { TodoItemMem } from "../../../infra/persistence/mem/models/todo_item.entity";
-import { InMemRepo } from "./common/mem_repo";
-
-// export interface TodoItemMemRepo extends InMemRepo<TodoItemMem> {}
-export type TodoItemMemRepo = InMemRepo<TodoItemMem>;

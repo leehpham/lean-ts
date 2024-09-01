@@ -1,4 +1,4 @@
-import { MemEntity } from "../models/mem.entity";
+import { MemEntity } from "../models/mem_entity";
 import { InMemDbOps } from "./db_ops";
 import { MemTable } from "./table";
 

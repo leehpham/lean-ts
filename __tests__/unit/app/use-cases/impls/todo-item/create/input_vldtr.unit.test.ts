@@ -1,4 +1,4 @@
-import { CreateTodoItemInputDto } from "../../../../../../../src/app/dto/todo-item/create/input.dto";
+import { CreateTodoItemInputDto } from "../../../../../../../src/app/dto/todo-item/create/input_dto";
 import { CreateTodoItemInputValidator } from "../../../../../../../src/app/use-cases/impls/todo-item/create/input_vldtr";
 
 describe("CreateTodoItemInputValidator", () => {

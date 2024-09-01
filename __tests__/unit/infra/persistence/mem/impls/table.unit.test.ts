@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 
 import { MemTable } from "../../../../../../src/infra/persistence/mem/impls/table";
 import { InMemTableConsts } from "../../../../../../src/infra/persistence/mem/impls/table_consts";
-import { MemEntity } from "../../../../../../src/infra/persistence/mem/models/mem.entity";
+import { MemEntity } from "../../../../../../src/infra/persistence/mem/models/mem_entity";
 
 interface Foo extends MemEntity {
   bar: number;
