@@ -1,14 +1,14 @@
 import { faker } from "@faker-js/faker";
 
-import { TodoItemMem } from "../../../../../../../src/infra/persistence/mem/models/todo_item.entity";
+import { TodoItemMemEntity } from "../../../../../../../src/infra/persistence/mem/models/todo_item_mem_entity";
 import { TodoItemMemRepoConsts as Consts } from "../../../../../../../src/infra/persistence/mem/repos/todo-item/consts";
-import { TodoItemMemRepoImpl } from "../../../../../../../src/infra/persistence/mem/repos/todo-item/todo_item.repo";
+import { TodoItemMemRepo } from "../../../../../../../src/infra/persistence/mem/repos/todo-item/todo_item_repo";
 
-function makeRepo(): TodoItemMemRepoImpl {
-  return new TodoItemMemRepoImpl();
+function makeRepo(): TodoItemMemRepo {
+  return new TodoItemMemRepo();
 }
 
-function makeCreateInput(): Omit<TodoItemMem, "id"> {
+function makeCreateInput(): Omit<TodoItemMemEntity, "id"> {
   return {
     description: faker.string.alpha({ length: { max: 200, min: 5 } }),
     title: faker.string.alpha({ length: { max: 10, min: 5 } }),
@@ -65,7 +65,7 @@ describe("TodoItemMemRepoImpl", () => {
 
     test("called with pre-created data, returns those data", () => {
       const repo = makeRepo();
-      const created: TodoItemMem[] = [];
+      const created: TodoItemMemEntity[] = [];
       for (let i = 0; i < 100; i++) {
         created.push(repo.create(makeCreateInput()));
       }
@@ -82,7 +82,7 @@ describe("TodoItemMemRepoImpl", () => {
     test("input random id, throws error", () => {
       const repo = makeRepo();
       const randomId = faker.number.int();
-      const updateInput: Partial<Omit<TodoItemMem, "id">> = {};
+      const updateInput: Partial<Omit<TodoItemMemEntity, "id">> = {};
 
       expect(() => repo.update(randomId, updateInput)).toThrow(Error);
       expect(() => repo.update(randomId, updateInput)).toThrow(
@@ -93,7 +93,7 @@ describe("TodoItemMemRepoImpl", () => {
     test("update an existing record, passed", () => {
       const repo = makeRepo();
       const created = repo.create(makeCreateInput());
-      const updateInput: Partial<Omit<TodoItemMem, "id">> = {
+      const updateInput: Partial<Omit<TodoItemMemEntity, "id">> = {
         description: faker.string.alpha({ length: { max: 200, min: 5 } }),
         title: faker.string.alpha({ length: { max: 10, min: 5 } }),
       };
