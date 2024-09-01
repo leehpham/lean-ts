@@ -1,5 +1,5 @@
-import { MemEntity } from "../../../../infra/persistence/mem/models/mem.entity";
+import { MemModel } from "../../../../infra/persistence/mem/models/mem_model";
 
-export interface IGetByIdInMemRepo<T extends MemEntity> {
+export interface IGetByIdInMemRepo<T extends MemModel> {
   getById: (id: number) => T;
 }

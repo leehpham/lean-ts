@@ -1,5 +1,5 @@
-import { MemEntity } from "../../../../infra/persistence/mem/models/mem.entity";
+import { MemModel } from "../../../../infra/persistence/mem/models/mem_model";
 
-export interface IGetAllInMemRepo<T extends MemEntity> {
+export interface IGetAllInMemRepo<T extends MemModel> {
   getAll: () => T[];
 }
