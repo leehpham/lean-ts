@@ -2,9 +2,9 @@ import { faker } from "@faker-js/faker";
 
 import { MemDb } from "../../../../../../src/infra/persistence/mem/impls/db";
 import { InMemTableConsts } from "../../../../../../src/infra/persistence/mem/impls/table_consts";
-import { MemEntity } from "../../../../../../src/infra/persistence/mem/models/mem_entity";
+import { MemModel } from "../../../../../../src/infra/persistence/mem/models/mem_model";
 
-type Foo = MemEntity & {
+type Foo = MemModel & {
   foo: string;
   bar: number;
   baz: boolean;

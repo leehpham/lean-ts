@@ -2,14 +2,14 @@ import { faker } from "@faker-js/faker";
 
 import { MemTable } from "../../../../../../src/infra/persistence/mem/impls/table";
 import { InMemTableConsts } from "../../../../../../src/infra/persistence/mem/impls/table_consts";
-import { MemEntity } from "../../../../../../src/infra/persistence/mem/models/mem_entity";
+import { MemModel } from "../../../../../../src/infra/persistence/mem/models/mem_model";
 
-interface Foo extends MemEntity {
+interface Foo extends MemModel {
   bar: number;
   baz: string;
 }
 
-function makeTable<T extends MemEntity>(name: string): MemTable<T> {
+function makeTable<T extends MemModel>(name: string): MemTable<T> {
   return new MemTable<T>(name);
 }
 

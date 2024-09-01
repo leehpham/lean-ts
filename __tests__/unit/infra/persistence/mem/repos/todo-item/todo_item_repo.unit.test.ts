@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-import { TodoItemMemEntity } from "../../../../../../../src/infra/persistence/mem/models/todo_item_mem_entity";
+import { TodoItemMemModel } from "../../../../../../../src/infra/persistence/mem/models/todo_item_mem_model";
 import { TodoItemMemRepoConsts as Consts } from "../../../../../../../src/infra/persistence/mem/repos/todo-item/consts";
 import { TodoItemMemRepo } from "../../../../../../../src/infra/persistence/mem/repos/todo-item/todo_item_repo";
 
@@ -8,7 +8,7 @@ function makeRepo(): TodoItemMemRepo {
   return new TodoItemMemRepo();
 }
 
-function makeCreateInput(): Omit<TodoItemMemEntity, "id"> {
+function makeCreateInput(): Omit<TodoItemMemModel, "id"> {
   return {
     description: faker.string.alpha({ length: { max: 200, min: 5 } }),
     title: faker.string.alpha({ length: { max: 10, min: 5 } }),
@@ -65,7 +65,7 @@ describe("TodoItemMemRepoImpl", () => {
 
     test("called with pre-created data, returns those data", () => {
       const repo = makeRepo();
-      const created: TodoItemMemEntity[] = [];
+      const created: TodoItemMemModel[] = [];
       for (let i = 0; i < 100; i++) {
         created.push(repo.create(makeCreateInput()));
       }
@@ -82,7 +82,7 @@ describe("TodoItemMemRepoImpl", () => {
     test("input random id, throws error", () => {
       const repo = makeRepo();
       const randomId = faker.number.int();
-      const updateInput: Partial<Omit<TodoItemMemEntity, "id">> = {};
+      const updateInput: Partial<Omit<TodoItemMemModel, "id">> = {};
 
       expect(() => repo.update(randomId, updateInput)).toThrow(Error);
       expect(() => repo.update(randomId, updateInput)).toThrow(
@@ -93,7 +93,7 @@ describe("TodoItemMemRepoImpl", () => {
     test("update an existing record, passed", () => {
       const repo = makeRepo();
       const created = repo.create(makeCreateInput());
-      const updateInput: Partial<Omit<TodoItemMemEntity, "id">> = {
+      const updateInput: Partial<Omit<TodoItemMemModel, "id">> = {
         description: faker.string.alpha({ length: { max: 200, min: 5 } }),
         title: faker.string.alpha({ length: { max: 10, min: 5 } }),
       };

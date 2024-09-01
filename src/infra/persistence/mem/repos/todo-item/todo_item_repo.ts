@@ -4,31 +4,31 @@ import { BaseMemRepo } from "../../../../../core/repos/mem/common/base_mem_repo"
 import { ITodoItemMemRepo } from "../../../../../core/repos/mem/i_todo_item_mem_repo";
 import { MemDb } from "../../impls/db";
 import { MemTable } from "../../impls/table";
-import { TodoItemMemEntity } from "../../models/todo_item_mem_entity";
+import { TodoItemMemModel } from "../../models/todo_item_mem_model";
 import { TodoItemMemRepoConsts as Consts } from "./consts";
 
 @Service()
 export class TodoItemMemRepo
-  extends BaseMemRepo<TodoItemMemEntity>
+  extends BaseMemRepo<TodoItemMemModel>
   implements ITodoItemMemRepo
 {
-  private readonly _table: MemTable<TodoItemMemEntity>;
+  private readonly _table: MemTable<TodoItemMemModel>;
 
   public constructor() {
     super();
-    const table = MemDb.instance.getTable<TodoItemMemEntity>("TodoItem");
+    const table = MemDb.instance.getTable<TodoItemMemModel>("TodoItem");
     if (!table) {
-      this._table = MemDb.instance.createTable<TodoItemMemEntity>("TodoItem");
+      this._table = MemDb.instance.createTable<TodoItemMemModel>("TodoItem");
     } else {
       this._table = table;
     }
   }
 
-  public create(input: Omit<TodoItemMemEntity, "id">): TodoItemMemEntity {
+  public create(input: Omit<TodoItemMemModel, "id">): TodoItemMemModel {
     return this._table.insert(input);
   }
 
-  public getById(id: number): TodoItemMemEntity {
+  public getById(id: number): TodoItemMemModel {
     const record = this._table.get(id.toString());
     if (!record) {
       throw new Error(Consts.ERR_GENS.getById.notFound(id));
@@ -36,14 +36,14 @@ export class TodoItemMemRepo
     return record;
   }
 
-  public getAll(): TodoItemMemEntity[] {
+  public getAll(): TodoItemMemModel[] {
     return this._table.getAll();
   }
 
   public update(
     id: number,
-    input: Partial<Omit<TodoItemMemEntity, "id">>
-  ): TodoItemMemEntity {
+    input: Partial<Omit<TodoItemMemModel, "id">>
+  ): TodoItemMemModel {
     this.getById(id);
     return this._table.update(id.toString(), input);
   }

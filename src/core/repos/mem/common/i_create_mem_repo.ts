@@ -1,5 +1,5 @@
-import { MemEntity } from "../../../../infra/persistence/mem/models/mem_entity";
+import { MemModel } from "../../../../infra/persistence/mem/models/mem_model";
 
-export interface ICreateMemRepo<T extends MemEntity> {
+export interface ICreateMemRepo<T extends MemModel> {
   create: (input: Omit<T, "id">) => T;
 }

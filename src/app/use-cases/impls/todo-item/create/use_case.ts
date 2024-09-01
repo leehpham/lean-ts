@@ -1,7 +1,7 @@
 import { Inject, Service } from "typedi";
 
 import { ICreateMemRepo } from "../../../../../core/repos/mem/common/i_create_mem_repo";
-import { TodoItemMemEntity } from "../../../../../infra/persistence/mem/models/todo_item_mem_entity";
+import { TodoItemMemModel } from "../../../../../infra/persistence/mem/models/todo_item_mem_model";
 import { TodoItemMemRepo } from "../../../../../infra/persistence/mem/repos/todo-item/todo_item_repo";
 import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/input_dto";
 import { CreateTodoItemOutputDto } from "../../../../dto/todo-item/create/output_dto";
@@ -16,13 +16,13 @@ export class CreateTodoItemUseCase extends UseCaseTemplate<
 > {
   protected readonly _inputValidator: IInputVldtr<CreateTodoItemInputDto>;
 
-  private readonly _repoCreate: ICreateMemRepo<TodoItemMemEntity>;
+  private readonly _repoCreate: ICreateMemRepo<TodoItemMemModel>;
 
   public constructor(
     @Inject(() => CreateTodoItemInputValidator)
     inputValidator: IInputVldtr<CreateTodoItemInputDto>,
     @Inject(() => TodoItemMemRepo)
-    repoCreate: ICreateMemRepo<TodoItemMemEntity>
+    repoCreate: ICreateMemRepo<TodoItemMemModel>
   ) {
     super();
     this._inputValidator = inputValidator;

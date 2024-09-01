@@ -1,9 +1,7 @@
-import { MemEntity } from "../../../../infra/persistence/mem/models/mem_entity";
+import { MemModel } from "../../../../infra/persistence/mem/models/mem_model";
 import { IInMemRepo } from "./i_mem_repo";
 
-export abstract class BaseMemRepo<T extends MemEntity>
-  implements IInMemRepo<T>
-{
+export abstract class BaseMemRepo<T extends MemModel> implements IInMemRepo<T> {
   public abstract create(input: Omit<T, "id">): T;
 
   public abstract getById(id: number): T;
