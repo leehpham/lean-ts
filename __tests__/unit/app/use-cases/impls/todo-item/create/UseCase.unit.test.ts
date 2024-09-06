@@ -1,8 +1,8 @@
-import { CreateTodoItemInputDto } from "../../../../../../../src/app/dto/todo-item/create/input_dto";
-import { IInputVldtr } from "../../../../../../../src/app/use-cases/abstrs/i_input_vldtr";
-import { CreateTodoItemUseCase } from "../../../../../../../src/app/use-cases/impls/todo-item/create/use_case";
-import { ICreateMemRepo } from "../../../../../../../src/core/repos/mem/common/i_create_mem_repo";
-import { TodoItemMemModel } from "../../../../../../../src/infra/persistence/mem/models/todo_item_mem_model";
+import { CreateTodoItemInputDto } from "../../../../../../../src/app/dto/todo-item/create/InputDto";
+import { IInputVldtr } from "../../../../../../../src/app/use-cases/abstrs/IInputVldtr";
+import { CreateTodoItemUseCase } from "../../../../../../../src/app/use-cases/impls/todo-item/create/UseCase";
+import { ICreateMemRepo } from "../../../../../../../src/core/repos/mem/common/ICreateMemRepo";
+import { TodoItemMemModel } from "../../../../../../../src/infra/persistence/mem/models/TodoItemMemModel";
 
 describe("CreateTodoItemUsecase", () => {
   test("valid input, new TodoItem is created", async () => {

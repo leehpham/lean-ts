@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 
-import { MemDb } from "../../../../../../src/infra/persistence/mem/impls/db";
-import { InMemTableConsts } from "../../../../../../src/infra/persistence/mem/impls/table_consts";
-import { MemModel } from "../../../../../../src/infra/persistence/mem/models/mem_model";
+import { MemDb } from "../../../../../../src/infra/persistence/mem/impls/Db";
+import { InMemTableConsts } from "../../../../../../src/infra/persistence/mem/impls/TableConsts";
+import { MemModel } from "../../../../../../src/infra/persistence/mem/models/MemModel";
 
 type Foo = MemModel & {
   foo: string;
