@@ -1,4 +1,4 @@
-import { LodashFacade } from "../../../../../src/infra/lib-wrappers/lodash/lodash_facade";
+import { LodashFacade } from "../../../../../src/infra/lib-wrappers/lodash/LodashFacade";
 
 describe("LodashFacade.cloneDeep", () => {
   type Bar = {

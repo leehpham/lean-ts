@@ -1,4 +1,4 @@
-import { MemModel } from "../models/mem_model";
+import { MemModel } from "../models/MemModel";
 
 export interface MemTableOps<T extends MemModel> {
   insert: (data: Omit<T, "id">) => T;

@@ -1,6 +1,6 @@
-import { MemModel } from "../models/mem_model";
-import { InMemTableConsts as Consts } from "./table_consts";
-import { MemTableOps } from "./table_ops";
+import { MemModel } from "../models/MemModel";
+import { InMemTableConsts as Consts } from "./TableConsts";
+import { MemTableOps } from "./TableOps";
 
 export class MemTable<T extends MemModel> implements MemTableOps<T> {
   private _name: string;
