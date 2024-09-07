@@ -1,5 +1,6 @@
 import "reflect-metadata";
 
+import { describe, expect, test } from "@jest/globals";
 import { Container, Service } from "typedi";
 
 interface InjectedService {

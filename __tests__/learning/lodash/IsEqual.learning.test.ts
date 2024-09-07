@@ -1,3 +1,4 @@
+import { describe, expect, test } from "@jest/globals";
 import { isEqual } from "lodash";
 
 describe("lodash:isEqual", () => {
@@ -21,9 +22,9 @@ describe("lodash:isEqual", () => {
       o31: "hello",
       o32: null,
       o33: {
-        o331: true
-      }
-    }
+        o331: true,
+      },
+    },
   };
 
   test("deeply equal objects are equal.", () => {
@@ -34,9 +35,9 @@ describe("lodash:isEqual", () => {
         o31: "hello",
         o32: null,
         o33: {
-          o331: true
-        }
-      }
+          o331: true,
+        },
+      },
     };
     expect(isEqual(obj, same)).toBe(true);
   });
@@ -49,9 +50,9 @@ describe("lodash:isEqual", () => {
         o31: "hello",
         o32: null,
         o33: {
-          o331: true
-        }
-      }
+          o331: true,
+        },
+      },
     };
     expect(isEqual(obj, differentNumber)).toBe(false);
   });
@@ -64,9 +65,9 @@ describe("lodash:isEqual", () => {
         o31: "world",
         o32: null,
         o33: {
-          o331: true
-        }
-      }
+          o331: true,
+        },
+      },
     };
     expect(isEqual(obj, differentString)).toBe(false);
   });
@@ -79,9 +80,9 @@ describe("lodash:isEqual", () => {
         o31: "hello",
         o32: null,
         o33: {
-          o331: false
-        }
-      }
+          o331: false,
+        },
+      },
     };
     expect(isEqual(obj, differentBoolean)).toBe(false);
   });
@@ -94,9 +95,9 @@ describe("lodash:isEqual", () => {
         o31: "hello",
         o32: undefined,
         o33: {
-          o331: true
-        }
-      }
+          o331: true,
+        },
+      },
     };
     expect(isEqual(obj, differentUndefined)).toBe(false);
   });
