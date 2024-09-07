@@ -1,3 +1,5 @@
+import { describe, expect, jest, test } from "@jest/globals";
+
 import { CreateTodoItemInputDto } from "../../../../../../../src/app/dto/todo-item/create/InputDto";
 import { IInputVldtr } from "../../../../../../../src/app/use-cases/abstrs/IInputVldtr";
 import { CreateTodoItemUseCase } from "../../../../../../../src/app/use-cases/impls/todo-item/create/UseCase";
@@ -20,7 +22,7 @@ describe("CreateTodoItemUsecase", () => {
       title: "title",
     };
     const fakeInputVldtr: IInputVldtr<CreateTodoItemInputDto> = {
-      validate: jest.fn(),
+      validate: jest.fn<(input: CreateTodoItemInputDto) => Promise<void>>(),
     };
 
     const useCase = new CreateTodoItemUseCase(

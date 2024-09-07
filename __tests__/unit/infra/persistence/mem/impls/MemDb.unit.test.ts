@@ -1,4 +1,5 @@
 import { faker } from "@faker-js/faker";
+import { describe, expect, jest, test } from "@jest/globals";
 
 import { MemDb } from "../../../../../../src/infra/persistence/mem/impls/Db";
 import { InMemTableConsts } from "../../../../../../src/infra/persistence/mem/impls/TableConsts";
