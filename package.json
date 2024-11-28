@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "npm run build -- --watch",
-    "start": "ts-node-dev --no-notify --exit-child --respawn ./src/main.ts",
+    "start": "npm run build && node ./dist/main.js",
+    "start:watch": "ts-node-dev --no-notify --exit-child --respawn ./src/main.ts",
     "lint": "eslint ./src/ ./__tests__",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
