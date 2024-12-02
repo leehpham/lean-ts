@@ -1,10 +1,10 @@
 import { describe, expect, jest, test } from "@jest/globals";
 
-import { CreateTodoItemInputDto } from "../../../../../../../src/app/dto/todo-item/create/InputDto";
-import { IInputVldtr } from "../../../../../../../src/app/use-cases/abstrs/IInputVldtr";
-import { CreateTodoItemUseCase } from "../../../../../../../src/app/use-cases/impls/todo-item/create/UseCase";
-import { ICreateMemRepo } from "../../../../../../../src/core/repos/mem/common/ICreateMemRepo";
-import { TodoItemMemModel } from "../../../../../../../src/infra/persistence/mem/models/TodoItemMemModel";
+import { CreateTodoItemInputDto } from "../../../../../../../../src/app/dto/todo-item/create/InputDto";
+import { IInputVldtr } from "../../../../../../../../src/app/use-cases/abstrs/IInputVldtr";
+import { CreateTodoItemUseCase } from "../../../../../../../../src/app/use-cases/impls/todo-item/create/UseCase";
+import { ICreateMemRepo } from "../../../../../../../../src/core/repos/mem/common/ICreateMemRepo";
+import { TodoItemMemModel } from "../../../../../../../../src/infra/persistence/mem/models/TodoItemMemModel";
 
 describe("CreateTodoItemUsecase", () => {
   test("valid input, new TodoItem is created", async () => {
