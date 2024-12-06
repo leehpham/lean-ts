@@ -3,44 +3,93 @@
 A very lean Typescript boilerplate.
 This can be used for different non-frontend project purposes.
 I try my best to make the architecture as clean as possible so in case
-you use this boilerplate at a starting point and your project somehow grows big in the future,
+you use this boilerplate at a starting point and
+your project somehow grows big in the future,
 you already have a good base to support your project's growth.
 
-## Usage
+## Features
 
-First, clone the repo
+- Clean architecture.
+- DDD support.
+- Minimum numbers of external packages.
+- Configurations for learning, unit and integration tests.
 
-```bash
-git clone https://github.com/leehpham/lean-ts.git <project-folder-name>
-```
+## Getting Started
 
-Remove `.git`
+### Prerequisites
 
-```bash
-rm -rf .git
-```
+- **Node.js**: Latest LTS version.
+- **npm**: Should follow the version of Node.js.
+- **TypeScript**: Latest LTS version.
+- **ESLint**: Latest LTS version.
+- **Prettier**: Latest LTS version.
 
-Remove `package-lock.json`
+### Installation
 
-```bash
-rm package-lock.json
-```
+1. Clone the repository:
 
-Rename `"name"` field in `package.json` to your `<project-folder-name>`.
+    ```bash
+    git clone https://github.com/leehpham/lean-ts.git <project-folder-name>
 
-Replace the content of `README.md` to your linking.
+2. Remove `.git`:
 
-Install packages
+    ```bash
+    rm -rf .git
+    ```
 
-```bash
-npm install
-```
+3. Remove `package-lock.json`:
 
-Update packages and set their versions in `package.json`
+    ```bash
+    rm -rf package-lock.json
+    ```
 
-```bash
-npm update --save
-```
+4. Rename `"name"` field in `package.json` to your `<project-folder-name>`.
+
+5. Install packages
+
+    ```bash
+    npm install
+    ```
+
+6. (Optional) Update packages and set their version in `package.json`:
+
+    ```bash
+    npm update --save
+    ```
+
+7. Run tests to make sure everything is working:
+
+    ```bash
+    npm run test
+    ```
+
+8. Update the content of `README.md` and documentation in `docs` folder to your liking.
+
+## Scripts
+
+- `npm run build`: Build the application.
+  The output `.js` files will be in the `dist` folder.
+- `npm run build:watch`: Build in watch mode.
+- `npm run start`: Start the application.
+- `npm run start:watch`: Start the application in watch mode.
+  This can be used during development.
+- `npm run lint`: Lint files `src` folder.
+  This needs to be updated to also lint test files in `__tests__` folder.
+- `npm run lint:fix`: Fix linting issues for files in `src` folder.
+- `npm run test`: Run **all** tests.
+- `npm run test:watch`: Run all tests in watch mode.
+- `npm run test:learning`: Run learning tests.
+- `npm run test:learning:watch`: Run learning tests in watch mode.
+- `npm run test:unit`: Run unit tests.
+- `npm run test:unit:watch`: Run unit tests in watch mode.
+
+## Documentation
+
+- [Architecture Overview](./docs/ARCHITECTURE.md)
+
+## License
+
+This project is licensed under the ISC License.
 
 ## Folder Structure
 
@@ -53,53 +102,6 @@ this is where your "learning tests" for 3rd-party frameworks/libraries should go
 You are encouraged to write these tests because:
 - They help you learn how to use the APIs of the frameworks/libraries.
 - They act as the sanity check for when you need to migrate/update the frameworks/libraries to newer versions.
-
-#### unit
-
-### src
-
-#### entities
-
-#### frameworks
-
-##### libs
-
-This is where you write wrappers for 3rd-party frameworks/libraries.
-Again, the idea of "keeping framework code distant" is embraced here.
-Recommended patterns are `Facade`, `Adapter`, `Proxy` and `Decorator`.
-
-#### interfaces
-
-#### repos
-
-#### usecases
-
-## Todo
-
-- [x] review current compiler options.
-- [] set up debugger for
-  - [] vscode
-    - [] add sourceMap option to tsconfig.
-  - [] phpstorm
-  - [] neovim (later)
-- [x] Add ESLint
-  - [x] https://github.com/standard/eslint-config-standard-with-typescript
-  - [x] https://typescript-eslint.io/
-  - [x] issue with member-delimiter-...
-  - rules to add:
-    - [x] space-before-function-paren (review)
-    - [x] method-signature-style
-    - [x] Enforce function return type.
-    - [x] @typescript-eslint/explicit-member-accessibility
-  - [x] Set eslint to only lint needed files.
-  - [] migrate to eslint-stylistic when ESLint makes the final announcement.
-- [x] Add npm scripts.
-- [x] devDependencies
-  - [x] ts-node-dev
-- [x] Add InversifyJS
-- [x] Add Jest
-- [x] Add Prettier
-- [x] Add lodash
 
 ## Commands Used
 

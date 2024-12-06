@@ -1,3 +1,12 @@
+# Architecture Overview
+
+## High-Level Design
+
+This project follows Clean Architecture.
+
+### Directory Structure
+
+```txt
 /src
 │
 ├── /core                     # Core domain logic (DDD)
@@ -8,7 +17,7 @@
 │   ├── /aggregates           # Aggregate roots and related entities
 │   │   └── UserAggregate.ts
 │   ├── /repositories         # Repository interfaces for persistence
-│   │   └── UserRepository.ts
+│   │   └── IUserRepository.ts
 │   ├── /services             # Domain services (business logic)
 │   │   └── UserService.ts
 │   ├── /events               # Domain events and handlers
@@ -17,7 +26,7 @@
 │   └── /specifications       # Domain specifications
 │       └── UserSpecifications.ts
 │
-├── /application              # Application logic (Use Cases, DTOs)
+├── /app                      # Application logic (Use Cases, DTOs)
 │   ├── /use-cases            # Application use cases
 │   │   └── CreateUserUseCase.ts
 │   ├── /dto                  # Data Transfer Objects (DTOs)
@@ -27,16 +36,18 @@
 │   └── /mappers              # Mappers to convert between domain and application layers
 │       └── UserMapper.ts
 │
-├── /infrastructure           # Frameworks, external services, and implementation details
-│   ├── /database             # Database interaction implementations (using TypeORM)
-│   │   ├── /repositories     # Implementations of repository interfaces
-│   │   │   └── UserRepositoryImpl.ts
-│   │   ├── /entities         # TypeORM entities
-│   │   │   └── UserEntity.ts
-│   │   └── /migrations       # Database migrations
-│   │       └── CreateUsersTable.ts
+├── /infra                    # Frameworks, external services, and implementation details
+│   ├── /facades              # Facade implementations for 3rd party packages
+│   ├── /persistence          # Database interaction implementations
+│   │   └── /mem
+│   │       ├── /repositories               # Implementations of repository interfaces
+│   │       │   └── UserRepository.ts
+│   │       ├── /models                     # Data persistence models
+│   │       │   └── UserModel.ts
+│   │       ├── /migrations                 # Database migrations
+│   │       │   └── CreateUsersTable.ts
+│   │       └── data-source.ts              # Data source configuration
 │   ├── /config               # Configuration files (e.g., environment variables)
-│   │   └── data-source.ts    # TypeORM data source configuration
 │   ├── /services             # External service implementations (e.g., API clients, cloud services)
 │   │   └── EmailService.ts
 │   ├── /adapters             # Adapter implementations for external systems (e.g., file storage, messaging)
@@ -74,3 +85,13 @@
 │       └── AppConstants.ts
 │
 └── index.ts                  # Entry point of the application
+```
+
+### Design Pattern
+
+- **Dependency Injection**: Used to decouple services.
+  `typedi` is used as the IoC container.
+- **Facade**
+- **Adapter**
+- **Proxy**
+- **Decorator**
