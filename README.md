@@ -86,6 +86,9 @@ you already have a good base to support your project's growth.
 ## Documentation
 
 - [Architecture Overview](./docs/ARCHITECTURE.md)
+- [Node.js Configuration](./docs/NODEJS_CONFIG.md)
+- [TypeScript Configuration]()
+- [Dependencies](./docs/DEPENDENCIES.md)
 
 ## License
 

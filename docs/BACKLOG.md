@@ -11,6 +11,7 @@
 - [] Set up debugger for phpstorm
 - [] Set up debugger neovim (later)
 - [] Research about how to apply Facade, Adapter, Proxy and Decorator correctly.
+- [] Research about licensing.
 
 ## Done
 
