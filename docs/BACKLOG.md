@@ -12,6 +12,10 @@
 - [] Set up debugger neovim (later)
 - [] Research about how to apply Facade, Adapter, Proxy and Decorator correctly.
 - [] Research about licensing.
+- [] Consider changing `"module"` option in `tsconfig.json` to ES module.
+  `"type"` needs to be added to `package.json` as well.
+- [] Review the option `"skipLibCheck"` in `tsconfig.json`.
+  Why was this set to `true`?
 
 ## Done
 
