@@ -1,7 +1,6 @@
 {
   "name": "lean-ts",
   "version": "1.0.0",
-  "description": "",
   "main": "./dist/main.js",
   "scripts": {
     "build": "tsc",
@@ -17,8 +16,7 @@
     "test:unit": "npm run test -- -c ./jest.config.unit.js",
     "test:unit:watch": "npm run test:unit -- --watch"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Hoang Pham",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.9.1",
