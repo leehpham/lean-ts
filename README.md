@@ -90,7 +90,7 @@ you already have a good base to support your project's growth.
 - [Node.js Configuration](./docs/NODEJS_CONFIG.md)
 - [TypeScript Configuration](./docs/TYPESCRIPT_CONFIG.md)
 - [Testing Guide](./docs/TESTING.md)
-- [Contribution Guidelines]()
+- [Contribution Guidelines](./docs/CONTRIBUTING.md)
 - [Dependencies](./docs/DEPENDENCIES.md)
 - [Backlog](./docs/BACKLOG.md)
 
