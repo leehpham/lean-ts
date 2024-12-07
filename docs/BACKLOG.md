@@ -7,18 +7,18 @@
 - [] Update ESLint config to also lint test files in `__tests__` folder.
   Also, need to move flags in ESLint's `npm` scripts related to the config file.
   We need a single source of truth.
-- [] Update folder names to match the project folder structure specified in ARCHITECTURE.md.
-- [] Set up debugger for phpstorm
-- [] Set up debugger neovim (later)
 - [] Research about how to apply Facade, Adapter, Proxy and Decorator correctly.
-- [] Research about licensing.
 - [] Consider changing `"module"` option in `tsconfig.json` to ES module.
   `"type"` needs to be added to `package.json` as well.
-- [] Review the option `"skipLibCheck"` in `tsconfig.json`.
-  Why was this set to `true`?
+- [] Update folder names to match the project folder structure specified in ARCHITECTURE.md.
+- [] Research about licensing.
+- [] Set up debugger for phpstorm
+- [] Set up debugger neovim (later)
 
 ## Done
 
+- [x] Review the option `"skipLibCheck"` in `tsconfig.json`.
+  Why was this set to `true`?
 - [x] Review current compiler options.
 - [x] Add `sourceMap` option to `tsconfig.json`.
 - [x] Set up debugger for vscode.

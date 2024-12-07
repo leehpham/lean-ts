@@ -47,6 +47,7 @@ This document explains the fields set in the `tsconfig.json` file.
 ### Completeness
 
 - `"skipLibCheck"`: Skip type checking all .d.ts files.
+  This is set to `true` by default.
 
 ## Others
 
