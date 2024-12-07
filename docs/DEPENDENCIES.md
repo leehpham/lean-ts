@@ -63,3 +63,79 @@
   Developed and maintained by Microsoft.
 - `typescript-eslint`: Tooling which enables you to use TypeScript with ESLint.
   Developed and maintained by typescript-eslint.
+
+## Installation Steps
+
+This is for just in case you want to re-install all the dependencies from scratch.
+
+`npm init -y`
+
+`npm install --save-dev typescript`
+
+`npx tsc --init`
+
+`npm install --save-dev @types/node`
+
+`npm install --save-dev eslint`
+
+```bash
+# This will help replace eslint:recommended.
+# This is from ESLint site. 
+npm install --save-dev @eslint/js
+```
+
+```bash
+# Typing support for @eslint/js
+# This is from typescript-eslint site.
+npm install --save-dev @types/eslint__js
+
+```
+
+```bash
+# This is from typescript-eslint site.
+npm install --save-dev typescript-eslint
+```
+
+```bash
+# From ESLint Stylistic, some rules are moved from ESLint here.
+npm install --save-dev @stylistic/eslint-plugin-js
+```
+
+```bash
+# From ESLint Stylistic, some rules are moved from ESLint here.
+npm install --save-dev @stylistic/eslint-plugin-ts
+```
+
+```bash
+# Keep even after the migration to ESLint 9.
+npm install --save-dev @typescript-eslint/eslint-plugin
+```
+
+```bash
+# Removed after the migration to ESLint 9.
+npm install --save-dev @typescript-eslint/parser
+```
+
+`npm install --save-dev ts-node-dev`
+
+`npm install --save-dev jest`
+
+`npm install --save-dev ts-jest`
+
+`npm install --save-dev @types/jest`
+
+`npx ts-jest config:init`
+
+`npm install --save lodash`
+
+`npm install --save-dev @types/lodash`
+
+`npm install typedi`
+
+`npm install reflect-metadata`
+
+`npm install prettier`
+
+`npm install --save-dev eslint-config-prettier`
+
+`npm install --save-dev eslint-plugin-simple-import-sort`
