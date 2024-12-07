@@ -89,7 +89,7 @@ you already have a good base to support your project's growth.
 - [Environment Configuration](./docs/ENVIRONMENT.md)
 - [Node.js Configuration](./docs/NODEJS_CONFIG.md)
 - [TypeScript Configuration](./docs/TYPESCRIPT_CONFIG.md)
-- [Testing Guide]()
+- [Testing Guide](./docs/TESTING.md)
 - [Contribution Guidelines]()
 - [Dependencies](./docs/DEPENDENCIES.md)
 - [Backlog](./docs/BACKLOG.md)
@@ -97,16 +97,3 @@ you already have a good base to support your project's growth.
 ## License
 
 This project is licensed under the ISC License.
-
-## Folder Structure
-
-### __tests__
-
-#### learning
-
-Following the idea of "keeping framework code distant",
-this is where your "learning tests" for 3rd-party frameworks/libraries should go to.
-You are encouraged to write these tests because:
-- They help you learn how to use the APIs of the frameworks/libraries.
-- They act as the sanity check for when you need to migrate/update the frameworks/libraries to newer versions.
-
