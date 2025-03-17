@@ -1,5 +1,5 @@
 import { IInputVldtr } from "./iInputVldtr";
-import { IUseCase } from "./IUseCase";
+import { IUseCase } from "./iUseCase";
 
 export abstract class UseCaseTemplate<Input, Output>
   implements IUseCase<Input, Output>

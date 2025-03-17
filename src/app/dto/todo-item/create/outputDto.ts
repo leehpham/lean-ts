@@ -1,4 +1,4 @@
-import { TodoItemMemModel } from "../../../../infra/persistence/mem/models/TodoItemMemModel";
+import { TodoItemMemModel } from "../../../../infra/persistence/mem/models/todoItemMemModel";
 
 export type CreateTodoItemOutputDto = {
   created: TodoItemMemModel;

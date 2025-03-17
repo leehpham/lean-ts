@@ -1,7 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
 
 import { CreateTodoItemInputDto } from "../../../../../../../../src/app/dto/todo-item/create/inputDto";
-import { CreateTodoItemInputValidator } from "../../../../../../../../src/app/use-cases/impls/todo-item/create/InputVldtr";
+import { CreateTodoItemInputValidator } from "../../../../../../../../src/app/use-cases/impls/todo-item/create/inputVldtr";
 
 describe("CreateTodoItemInputValidator", () => {
   const validator = new CreateTodoItemInputValidator();
