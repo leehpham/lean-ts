@@ -1,3 +1,3 @@
-import { ISecretsVault } from "../../app/interfaces/ISecretVault";
+import { ISecretsVault } from "../../app/interfaces/iSecretVault";
 
 export class SecretsManagerFacade implements ISecretsVault {}

@@ -3,9 +3,9 @@ import { Inject, Service } from "typedi";
 import { ICreateMemRepo } from "../../../../../core/repos/mem/common/ICreateMemRepo";
 import { TodoItemMemModel } from "../../../../../infra/persistence/mem/models/TodoItemMemModel";
 import { TodoItemMemRepo } from "../../../../../infra/persistence/mem/repos/todo-item/TodoItemRepo";
-import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/InputDto";
-import { CreateTodoItemOutputDto } from "../../../../dto/todo-item/create/OutputDto";
-import { IInputVldtr } from "../../../abstrs/IInputVldtr";
+import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/inputDto";
+import { CreateTodoItemOutputDto } from "../../../../dto/todo-item/create/outputDto";
+import { IInputVldtr } from "../../../abstrs/iInputVldtr";
 import { UseCaseTemplate } from "../../../abstrs/UseCaseTemplate";
 import { CreateTodoItemInputValidator } from "./InputVldtr";
 
