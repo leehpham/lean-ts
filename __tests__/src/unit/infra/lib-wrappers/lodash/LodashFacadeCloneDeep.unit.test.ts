@@ -1,6 +1,6 @@
 import { describe, expect, test } from "@jest/globals";
 
-import { LodashFacade } from "../../../../../../src/infra/lib-wrappers/lodash/LodashFacade";
+import { LodashFacade } from "../../../../../../src/infra/lib-wrappers/lodash/lodashFacade";
 
 describe("LodashFacade.cloneDeep", () => {
   type Bar = {

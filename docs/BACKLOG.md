@@ -2,13 +2,13 @@
 
 ## In Progress
 
-## Todo
-
-- [] Add `.ignore` file.
-- [] Update the documentation to specify which config files belong to which tools
 - [] Update ESLint config to also lint test files in `__tests__` folder.
   Also, need to move flags in ESLint's `npm` scripts related to the config file.
   We need a single source of truth.
+
+## Todo
+
+- [] Update the documentation to specify which config files belong to which tools
 - [] Research about how to apply Facade, Adapter, Proxy and Decorator correctly.
 - [] Consider changing `"module"` option in `tsconfig.json` to ES module.
   `"type"` needs to be added to `package.json` as well.
@@ -19,6 +19,7 @@
 
 ## Done
 
+- [x] Add `.ignore` file.
 - [x] Review the option `"skipLibCheck"` in `tsconfig.json`.
   Why was this set to `true`?
 - [x] Review current compiler options.

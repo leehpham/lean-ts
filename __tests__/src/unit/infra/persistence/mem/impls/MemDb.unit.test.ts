@@ -1,9 +1,9 @@
 import { faker } from "@faker-js/faker";
 import { describe, expect, jest, test } from "@jest/globals";
 
-import { MemDb } from "../../../../../../../src/infra/persistence/mem/impls/Db";
-import { InMemTableConsts } from "../../../../../../../src/infra/persistence/mem/impls/TableConsts";
-import { MemModel } from "../../../../../../../src/infra/persistence/mem/models/MemModel";
+import { MemDb } from "../../../../../../../src/infra/persistence/mem/impls/db";
+import { InMemTableConsts } from "../../../../../../../src/infra/persistence/mem/impls/tableConsts";
+import { MemModel } from "../../../../../../../src/infra/persistence/mem/models/memModel";
 
 type Foo = MemModel & {
   foo: string;
