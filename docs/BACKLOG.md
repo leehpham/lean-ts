@@ -2,6 +2,7 @@
 
 ## In Progress
 
+- [] Update test setup.
 - [] Update ESLint config to also lint test files in `__tests__` folder.
   Also, need to move flags in ESLint's `npm` scripts related to the config file.
   We need a single source of truth.
