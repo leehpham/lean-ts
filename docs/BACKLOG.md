@@ -19,6 +19,7 @@
 
 ## Done
 
+- [x] Update test setup.
 - [x] Add `.ignore` file.
 - [x] Review the option `"skipLibCheck"` in `tsconfig.json`.
   Why was this set to `true`?

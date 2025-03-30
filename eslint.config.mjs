@@ -2,7 +2,7 @@ import js from "@eslint/js";
 import stylisticJs from "@stylistic/eslint-plugin-js";
 import stylisticTS from "@stylistic/eslint-plugin-ts";
 import tsEslintPlugin from "@typescript-eslint/eslint-plugin";
-import eslintConfigPrettier from "eslint-config-prettier";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
 

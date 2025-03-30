@@ -1,3 +1,3 @@
-var config = require("./jest.config");
-config.testRegex = "learning\\.test\\.ts$";
+const config = require("./jest.config");
+config.testMatch = ["<rootDir>/__tests__/learning/**/*.test.ts"];
 module.exports = config;
