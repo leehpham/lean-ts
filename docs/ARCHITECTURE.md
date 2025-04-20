@@ -11,78 +11,78 @@ This project follows Clean Architecture.
 │
 ├── /core                     # Core domain logic (DDD)
 │   ├── /entities             # Domain entities
-│   │   └── User.ts
+│   │   └── user.ts
 │   ├── /value-objects        # Domain-specific value objects
-│   │   └── Email.ts
+│   │   └── email.ts
 │   ├── /aggregates           # Aggregate roots and related entities
-│   │   └── UserAggregate.ts
+│   │   └── userAggregate.ts
 │   ├── /repositories         # Repository interfaces for persistence
-│   │   └── IUserRepository.ts
+│   │   └── iUserRepository.ts
 │   ├── /services             # Domain services (business logic)
-│   │   └── UserService.ts
+│   │   └── userService.ts
 │   ├── /events               # Domain events and handlers
-│   │   ├── UserCreatedEvent.ts
-│   │   └── UserCreatedHandler.ts
+│   │   ├── userCreatedEvent.ts
+│   │   └── userCreatedHandler.ts
 │   └── /specifications       # Domain specifications
-│       └── UserSpecifications.ts
+│       └── userSpecifications.ts
 │
 ├── /app                      # Application logic (Use Cases, DTOs)
 │   ├── /use-cases            # Application use cases
-│   │   └── CreateUserUseCase.ts
+│   │   └── createUserUseCase.ts
 │   ├── /dto                  # Data Transfer Objects (DTOs)
-│   │   └── CreateUserDTO.ts
+│   │   └── createUserDTO.ts
 │   ├── /interfaces           # Interfaces for service inputs and outputs
-│   │   └── IUserService.ts
+│   │   └── iUserService.ts
 │   └── /mappers              # Mappers to convert between domain and application layers
-│       └── UserMapper.ts
+│       └── userMapper.ts
 │
 ├── /infra                    # Frameworks, external services, and implementation details
 │   ├── /facades              # Facade implementations for 3rd party packages
 │   ├── /persistence          # Database interaction implementations
 │   │   └── /mem
 │   │       ├── /repositories               # Implementations of repository interfaces
-│   │       │   └── UserRepository.ts
+│   │       │   └── userRepository.ts
 │   │       ├── /models                     # Data persistence models
-│   │       │   └── UserModel.ts
+│   │       │   └── userModel.ts
 │   │       ├── /migrations                 # Database migrations
-│   │       │   └── CreateUsersTable.ts
+│   │       │   └── createUsersTable.ts
 │   │       └── data-source.ts              # Data source configuration
 │   ├── /config               # Configuration files (e.g., environment variables)
 │   ├── /services             # External service implementations (e.g., API clients, cloud services)
-│   │   └── EmailService.ts
+│   │   └── emailService.ts
 │   ├── /adapters             # Adapter implementations for external systems (e.g., file storage, messaging)
-│   │   └── S3Adapter.ts
+│   │   └── s3Adapter.ts
 │   └── /utils                # Infrastructure-specific utility functions
-│       └── Logger.ts
+│       └── logger.ts
 │
 ├── /presentation             # Presentation layer (API, CLI, UI)
 │   ├── /rest                 # RESTful API
 │   │   ├── /controllers      # REST controllers
-│   │   │   └── UserController.ts
+│   │   │   └── userController.ts
 │   │   ├── /middlewares      # Middlewares for RESTful API request handling
-│   │   │   └── AuthMiddleware.ts
+│   │   │   └── authMiddleware.ts
 │   │   └── /routes           # RESTful API routes
-│   │       └── UserRoutes.ts
+│   │       └── userRoutes.ts
 │   ├── /graphql              # GraphQL API
 │   │   ├── /resolvers        # GraphQL resolvers
-│   │   │   └── UserResolver.ts
+│   │   │   └── userResolver.ts
 │   │   ├── /middlewares      # Middlewares for GraphQL request handling
-│   │   │   └── GraphQLAuthMiddleware.ts
+│   │   │   └── graphQlAuthMiddleware.ts
 │   │   └── /schemas          # GraphQL schema definitions
-│   │       └── UserSchema.ts
+│   │       └── userSchema.ts
 │   └── /cli                  # Command-Line Interface (CLI)
 │       ├── /commands         # CLI commands
-│       │   └── CreateUserCommand.ts
+│       │   └── createUserCommand.ts
 │       └── /handlers         # CLI command handlers
-│           └── CreateUserHandler.ts
+│           └── createUserHandler.ts
 │
 ├── /shared                   # Shared modules, utilities, and types
 │   ├── /utils                # Utility functions used across the application
-│   │   └── HashUtils.ts
+│   │   └── hashUtils.ts
 │   ├── /types                # Shared TypeScript types
-│   │   └── CustomTypes.ts
+│   │   └── customTypes.ts
 │   └── /constants            # Shared constants
-│       └── AppConstants.ts
+│       └── appConstants.ts
 │
 └── index.ts                  # Entry point of the application
 ```
