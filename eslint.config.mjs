@@ -11,6 +11,7 @@ export default tseslint.config(
     ignores: [
       "**/dist/**",
       "**/jest.config.js",
+      "**/jest.config.eslint.js",
       "**/jest.config.learning.js",
       "**/jest.config.unit.js",
       "**/jest.config.integration.js",

@@ -10,7 +10,7 @@
     "lint": "eslint",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
-    "test:watch": "npm run test -- --watch",
+    "test:eslint": "node --experimental-vm-modules node_modules/jest/bin/jest.js -c jest.config.eslint.js",
     "test:learning": "npm run test -- -c ./jest.config.learning.js",
     "test:learning:watch": "npm run test:learning -- --watch",
     "test:unit": "npm run test -- -c ./jest.config.unit.js",
