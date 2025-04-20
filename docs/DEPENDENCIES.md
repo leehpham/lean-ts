@@ -9,7 +9,7 @@
   collecting metadata about classes, properties, methods and parameters.
   Developed and maintained by rbuckton.
   **Note**: The APIs are no longer being considered for standardization.
-  However this package will continue to support
+  However, this package will continue to support
   TypeScript's legacy `--experimentalDecorators` option.
 - `typedi`: A dependency injection tool for TypeScript and JavaScript.
   **Note**: The development of this package was terminated several years ago.
@@ -22,8 +22,6 @@
 - `@faker-js/faker`: Generates massive amounts of fake
   (but realistic) data for testing and development.
   Developed and maintained by faker-js.
-- `@jest/globals`: Supports TypeScript's typing when writing tests with Jest.
-  Developed and maintained by Facebook.
 - `@stylistic/eslint-plugin-js`: JavaScript stylistic rules for ESLint,
   migrated from `eslint core`.
   Developed and maintained by eslint-stylistic.
