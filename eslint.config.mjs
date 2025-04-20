@@ -9,7 +9,7 @@ import tseslint from "typescript-eslint";
 export default tseslint.config(
   {
     ignores: [
-      "**/dist",
+      "**/dist/**",
       "**/jest.config.js",
       "**/jest.config.learning.js",
       "**/jest.config.unit.js",
