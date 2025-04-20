@@ -40,7 +40,7 @@ you already have a good base to support your project's growth.
 3. Remove `package-lock.json`:
 
     ```bash
-    rm -rf package-lock.json
+    rm package-lock.json
     ```
 
 4. Rename `"name"` field in `package.json` to your `<project-folder-name>`.
