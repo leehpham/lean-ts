@@ -16,6 +16,8 @@ describe("ESLint rules", () => {
       ${disableEolLastCheck}
     `;
     const lintResults = await esLint.lintText(code);
+    expect(lintResults).toHaveLength(1);
+    expect(lintResults[0].messages).toHaveLength(1);
     expect(lintResults[0].messages[0].ruleId).toBe(ruleId);
   });
 
@@ -28,6 +30,8 @@ describe("ESLint rules", () => {
       ${disableEolLastCheck}
     `;
     const lintResults = await esLint.lintText(code);
+    expect(lintResults).toHaveLength(1);
+    expect(lintResults[0].messages).toHaveLength(1);
     expect(lintResults[0].messages[0].ruleId).toBe(ruleId);
   });
 });
