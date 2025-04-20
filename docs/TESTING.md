@@ -4,39 +4,38 @@
 
 ```txt
 __tests__
-└── src
-    ├── learning
-    │   ├── lodash
-    │   │   ├── CloneDeep.learning.test.ts
-    │   │   └── IsEqual.learning.test.ts
-    │   └── typedi
-    │       ├── BasicDi.learning.test.ts
-    │       ├── BasicUsage.learning.test.ts
-    │       ├── InjectDecoratorConstructor.learning.test.ts
-    │       ├── InjectDecoratorExplicitTarget.learning.test.ts
-    │       └── InjectDecoratorProperty.learning.test.ts
-    └── unit
+├── learning
+│   ├── lodash
+│   │   ├── cloneDeep.test.ts
+│   │   └── isEqual.test.ts
+│   └── typedi
+│       ├── basicDi.test.ts
+│       ├── basicUsage.test.ts
+│       ├── injectDecoratorConstructor.test.ts
+│       ├── injectDecoratorExplicitTarget.test.ts
+│       └── injectDecoratorProperty.test.ts
+└── unit
+    └── src
         ├── app
-        │   └── use-cases
-        │       ├── abstrs
-        │       └── impls
-        │           └── todo-item
-        │               └── create
-        │                   ├── InputVldtr.unit.test.ts
-        │                   └── UseCase.unit.test.ts
+        │   └── use-cases
+        │       └── impls
+        │           └── todo-item
+        │               └── create
+        │                   ├── inputVldtr.test.ts
+        │                   └── useCase.test.ts
         └── infra
             ├── lib-wrappers
-            │   └── lodash
-            │       ├── LodashFacadeCloneDeep.unit.test.ts
-            │       └── LodashFacadeIsEqual.unit.test.ts
+            │   └── lodash
+            │       ├── lodashFacadeCloneDeep.test.ts
+            │       └── lodashFacadeIsEqual.test.ts
             └── persistence
                 └── mem
                     ├── impls
-                    │   ├── MemDb.unit.test.ts
-                    │   └── Table.unit.test.ts
+                    │   ├── memDb.test.ts
+                    │   └── table.test.ts
                     └── repos
                         └── todo-item
-                            └── TodoItemRepo.unit.test.ts
+                            └── todoItemRepo.test.ts
 ```
 
 ## Learning Tests
