@@ -4,6 +4,8 @@ import { ESLint } from "eslint";
 const quotesRuleId = "@stylistic/ts/quotes";
 const semiRuleId = "@stylistic/ts/semi";
 const memberDelimiterStyleRuleId = "@stylistic/ts/member-delimiter-style";
+const methodSignatureStyleRuleId =
+  "@typescript-eslint-plugin/method-signature-style";
 
 const disableNoUnusedVarsCheck =
   "// eslint-disable-next-line @typescript-eslint/no-unused-vars";
@@ -63,7 +65,7 @@ describe("ESLint rules", () => {
       expect(onlyMessage.ruleId).toBe(memberDelimiterStyleRuleId);
     });
 
-    test("Comma used, 'Expected a semicolon' not reported, passed", async () => {
+    test("Comma used, 'Expected a semicolon' reported, passed", async () => {
       const esLint = new ESLint();
       const code = `
       ${disableNoUnusedVarsCheck}
@@ -78,6 +80,25 @@ describe("ESLint rules", () => {
       expect(onlyLintResult.messages).toHaveLength(1);
       const onlyMessage = onlyLintResult.messages[0];
       expect(onlyMessage.ruleId).toBe(memberDelimiterStyleRuleId);
+    });
+  });
+
+  describe(`${methodSignatureStyleRuleId}`, () => {
+    test("Method shorthand syntax used, 'Shorthand method signature is forbidden. Use a function property instead' reported, passed", async () => {
+      const esLint = new ESLint();
+      const code = `
+      ${disableNoUnusedVarsCheck}
+      interface Example {
+        func(arg: string): number;
+      }
+      ${disableEolLastCheck}
+      `;
+      const lintResults = await esLint.lintText(code);
+      expect(lintResults).toHaveLength(1);
+      const onlyLintResults = lintResults[0];
+      expect(onlyLintResults.messages).toHaveLength(1);
+      const onlyMessage = onlyLintResults.messages[0];
+      expect(onlyMessage.ruleId).toBe(methodSignatureStyleRuleId);
     });
   });
 });
