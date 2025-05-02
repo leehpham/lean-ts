@@ -11,6 +11,7 @@ const explicitFunctionReturnTypeRuleId =
   "@typescript-eslint-plugin/explicit-function-return-type";
 const explicitMemberAccessibilityRuleId =
   "@typescript-eslint-plugin/explicit-member-accessibility";
+const importsRuleId = "simple-import-sort/imports";
 
 const disableNextLineCommand = "eslint-disable-next-line";
 const disableNoUnusedVarsCheck = `// ${disableNextLineCommand} @typescript-eslint/no-unused-vars`;
@@ -229,6 +230,23 @@ describe("ESLint rules", () => {
       expect(onlyLintResult.messages).toHaveLength(1);
       const onlyMessage = onlyLintResult.messages[0];
       expect(onlyMessage.ruleId).toBe(explicitMemberAccessibilityRuleId);
+    });
+  });
+
+  describe(`${importsRuleId}`, () => {
+    test("Imports not sorted, 'Run autofix to sort these imports!' reported, passed", async () => {
+      const esLint = new ESLint();
+      const code = `
+      ${disableNoUnusedVarsCheck}
+      import { foo, bar } from "./bar";
+      ${disableEolLastCheck}
+      `;
+      const lintResults = await esLint.lintText(code);
+      expect(lintResults).toHaveLength(1);
+      const onlyLintResult = lintResults[0];
+      expect(onlyLintResult.messages).toHaveLength(1);
+      const onlyMessage = onlyLintResult.messages[0];
+      expect(onlyMessage.ruleId).toBe(importsRuleId);
     });
   });
 });
