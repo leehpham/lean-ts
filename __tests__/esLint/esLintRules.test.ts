@@ -25,7 +25,7 @@ describe("ESLint rules", () => {
       ${disableNoUnusedVarsCheck}
       const foo = 'bar';
       ${disableEolLastCheck}
-    `;
+      `;
       const lintResults = await esLint.lintText(code);
       expect(lintResults).toHaveLength(1);
       const onlyLintResult = lintResults[0];
@@ -42,7 +42,7 @@ describe("ESLint rules", () => {
       ${disableNoUnusedVarsCheck}
       const foo = 123
       ${disableEolLastCheck}
-    `;
+      `;
       const lintResults = await esLint.lintText(code);
       expect(lintResults).toHaveLength(1);
       const onlyLintResult = lintResults[0];
