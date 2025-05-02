@@ -7,6 +7,8 @@ const memberDelimiterStyleRuleId = "@stylistic/ts/member-delimiter-style";
 const methodSignatureStyleRuleId =
   "@typescript-eslint-plugin/method-signature-style";
 const eolLastRuleId = "@stylistic/js/eol-last";
+const explicitFunctionReturnTypeRuleId =
+  "@typescript-eslint-plugin/explicit-function-return-type";
 
 const disableNextLineCommand = "eslint-disable-next-line";
 const disableNoUnusedVarsCheck = `// ${disableNextLineCommand} @typescript-eslint/no-unused-vars`;
@@ -115,6 +117,78 @@ describe("ESLint rules", () => {
       expect(onlyLintResults.messages).toHaveLength(1);
       const onlyMessage = onlyLintResults.messages[0];
       expect(onlyMessage.ruleId).toBe(eolLastRuleId);
+    });
+  });
+
+  describe(`${explicitFunctionReturnTypeRuleId}`, () => {
+    test("Normal function definition syntax, No function return type, 'Missing return type on function' reported, passed", async () => {
+      const esLint = new ESLint();
+      const code = `
+      ${disableNoUnusedVarsCheck}
+      function foo() { 
+        return;
+      }
+      ${disableEolLastCheck}
+      `;
+      const lintResults = await esLint.lintText(code);
+      expect(lintResults).toHaveLength(1);
+      const onlyLintResult = lintResults[0];
+      expect(onlyLintResult.messages).toHaveLength(1);
+      const onlyMessage = onlyLintResult.messages[0];
+      expect(onlyMessage.ruleId).toBe(explicitFunctionReturnTypeRuleId);
+    });
+
+    test("First-class normal function definition syntax, No function return type, 'Missing return type on function' reported, passed", async () => {
+      const esLint = new ESLint();
+      const code = `
+      ${disableNoUnusedVarsCheck}
+      const foo = function () { 
+        return;
+      };
+      ${disableEolLastCheck}
+      `;
+      const lintResults = await esLint.lintText(code);
+      expect(lintResults).toHaveLength(1);
+      const onlyLintResult = lintResults[0];
+      expect(onlyLintResult.messages).toHaveLength(1);
+      const onlyMessage = onlyLintResult.messages[0];
+      expect(onlyMessage.ruleId).toBe(explicitFunctionReturnTypeRuleId);
+    });
+
+    test("First-class arrow function definition syntax, No function return type, 'Missing return type on function' reported, passed", async () => {
+      const esLint = new ESLint();
+      const code = `
+      ${disableNoUnusedVarsCheck}
+      const foo = () => { 
+        return;
+      };
+      ${disableEolLastCheck}
+      `;
+      const lintResults = await esLint.lintText(code);
+      expect(lintResults).toHaveLength(1);
+      const onlyLintResult = lintResults[0];
+      expect(onlyLintResult.messages).toHaveLength(1);
+      const onlyMessage = onlyLintResult.messages[0];
+      expect(onlyMessage.ruleId).toBe(explicitFunctionReturnTypeRuleId);
+    });
+
+    test("Class method definition syntax, No function return type, 'Missing return type on function' reported, passed", async () => {
+      const esLint = new ESLint();
+      const code = `
+      ${disableNoUnusedVarsCheck}
+      class Foo {
+        public bar() {
+          return;
+        }
+      }
+      ${disableEolLastCheck}
+      `;
+      const lintResults = await esLint.lintText(code);
+      expect(lintResults).toHaveLength(1);
+      const onlyLintResult = lintResults[0];
+      expect(onlyLintResult.messages).toHaveLength(1);
+      const onlyMessage = onlyLintResult.messages[0];
+      expect(onlyMessage.ruleId).toBe(explicitFunctionReturnTypeRuleId);
     });
   });
 });
