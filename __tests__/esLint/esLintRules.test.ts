@@ -9,6 +9,8 @@ const methodSignatureStyleRuleId =
 const eolLastRuleId = "@stylistic/js/eol-last";
 const explicitFunctionReturnTypeRuleId =
   "@typescript-eslint-plugin/explicit-function-return-type";
+const explicitMemberAccessibilityRuleId =
+  "@typescript-eslint-plugin/explicit-member-accessibility";
 
 const disableNextLineCommand = "eslint-disable-next-line";
 const disableNoUnusedVarsCheck = `// ${disableNextLineCommand} @typescript-eslint/no-unused-vars`;
@@ -189,6 +191,44 @@ describe("ESLint rules", () => {
       expect(onlyLintResult.messages).toHaveLength(1);
       const onlyMessage = onlyLintResult.messages[0];
       expect(onlyMessage.ruleId).toBe(explicitFunctionReturnTypeRuleId);
+    });
+  });
+
+  describe(`${explicitMemberAccessibilityRuleId}`, () => {
+    test("No access modifier on class property, 'Missing accessibility modifier on class property' reported, passed", async () => {
+      const esLint = new ESLint();
+      const code = `
+      ${disableNoUnusedVarsCheck}
+      class Foo {
+        bar: number;
+      }
+      ${disableEolLastCheck}
+      `;
+      const lintResults = await esLint.lintText(code);
+      expect(lintResults).toHaveLength(1);
+      const onlyLintResult = lintResults[0];
+      expect(onlyLintResult.messages).toHaveLength(1);
+      const onlyMessage = onlyLintResult.messages[0];
+      expect(onlyMessage.ruleId).toBe(explicitMemberAccessibilityRuleId);
+    });
+
+    test("No access modifier on class method, 'Missing accessibility modifier on method definition' reported, passed", async () => {
+      const esLint = new ESLint();
+      const code = `
+      ${disableNoUnusedVarsCheck}
+      class Foo {
+        bar(): void {
+          return;
+        }
+      }
+      ${disableEolLastCheck}
+      `;
+      const lintResults = await esLint.lintText(code);
+      expect(lintResults).toHaveLength(1);
+      const onlyLintResult = lintResults[0];
+      expect(onlyLintResult.messages).toHaveLength(1);
+      const onlyMessage = onlyLintResult.messages[0];
+      expect(onlyMessage.ruleId).toBe(explicitMemberAccessibilityRuleId);
     });
   });
 });
