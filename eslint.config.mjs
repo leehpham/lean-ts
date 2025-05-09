@@ -1,6 +1,5 @@
 import js from "@eslint/js";
-import stylisticJs from "@stylistic/eslint-plugin-js";
-import stylisticTS from "@stylistic/eslint-plugin-ts";
+import stylistic from "@stylistic/eslint-plugin";
 import tsEslintPlugin from "@typescript-eslint/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
@@ -18,23 +17,22 @@ export default tseslint.config(
     ],
   },
   js.configs.recommended,
-  ...tseslint.configs.recommended,
+  tseslint.configs.recommended,
   eslintConfigPrettier,
   {
     plugins: {
-      "@stylistic/js": stylisticJs,
-      "@stylistic/ts": stylisticTS,
+      "@stylistic": stylistic,
       "@typescript-eslint-plugin": tsEslintPlugin,
       "simple-import-sort": simpleImportSort,
     },
   },
   {
     rules: {
-      "@stylistic/ts/quotes": ["error", "double"],
-      "@stylistic/ts/semi": ["error", "always"],
-      "@stylistic/ts/member-delimiter-style": "error",
+      "@stylistic/quotes": ["error", "double"],
+      "@stylistic/semi": ["error", "always"],
+      "@stylistic/member-delimiter-style": "error",
       "@typescript-eslint-plugin/method-signature-style": "error",
-      "@stylistic/js/eol-last": ["error", "always"],
+      "@stylistic/eol-last": ["error", "always"],
       "@typescript-eslint-plugin/explicit-function-return-type": "error",
       "@typescript-eslint-plugin/explicit-member-accessibility": "error",
       "simple-import-sort/imports": "error",
