@@ -83,35 +83,18 @@ npm install --save-dev @eslint/js
 ```
 
 ```bash
-# Typing support for @eslint/js
-# This is from typescript-eslint site.
-npm install --save-dev @types/eslint__js
-
-```
-
-```bash
 # This is from typescript-eslint site.
 npm install --save-dev typescript-eslint
 ```
 
 ```bash
 # From ESLint Stylistic, some rules are moved from ESLint here.
-npm install --save-dev @stylistic/eslint-plugin-js
-```
-
-```bash
-# From ESLint Stylistic, some rules are moved from ESLint here.
-npm install --save-dev @stylistic/eslint-plugin-ts
+npm install --save-dev @stylistic/eslint-plugin
 ```
 
 ```bash
 # Keep even after the migration to ESLint 9.
 npm install --save-dev @typescript-eslint/eslint-plugin
-```
-
-```bash
-# Removed after the migration to ESLint 9.
-npm install --save-dev @typescript-eslint/parser
 ```
 
 `npm install --save-dev ts-node-dev`
