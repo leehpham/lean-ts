@@ -1,28 +1,47 @@
 # lean-ts
 
-A very lean Typescript boilerplate.
-This can be used for different non-frontend project purposes.
-I try my best to make the architecture as clean as possible so in case
-you use this boilerplate at a starting point and
-your project somehow grows big in the future,
-you already have a good base to support your project's growth.
+A lean TypeScript boilerplate designed for non-frontend projects with
+a focus on clean architecture principles.
+This template provides a solid foundation for projects that may scale over time,
+with carefully structured layers that support proper separation of concerns.
+
+## Table of Contents
+
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Example Usage](#example-usage)
+- [Scripts](#scripts)
+- [Documentation](#documentation)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
 ## Features
 
-- Clean architecture.
-- DDD support.
-- Minimum numbers of external packages.
-- Configurations for learning, unit and integration tests.
+- **Clean architecture**: Properly separated layers (core, application, infrastructure)
+  with clear boundaries and dependencies pointing inward
+- **Domain-Drive Design Support**: Structured with entities,
+  value objects, and repositories to support DDD principles.
+- **Minimal Dependencies**: Carefully selected external packages to
+  minimize bloat and security vulnerabilities.
+- **Comprehensive Testing Setup**: Pre-configured testing framework
+  with support for:
+  - Learning tests for understanding third-party libraries
+  - Unit tests for isolated components
+  - Integration tests for verifying component interactions
+- **TypeScript Best Practices**: Strict type checking and
+  modern TypeScript features enabled.
 
 ## Getting Started
 
 ### Prerequisites
 
-- **Node.js**: Latest LTS version.
-- **npm**: Should follow the version of Node.js.
-- **TypeScript**: Latest LTS version.
-- **ESLint**: Latest LTS version.
-- **Prettier**: Latest LTS version.
+- **Node.js**: Version 22 or higher (latest LTS recommended)
+- **npm**: Version 10 or higher (comes with Node.js).
+- **TypeScript**: Version 5.8 or higher (installed as a project dependency).
+- **ESLint**: Version 98 or higher (installed as a project dependency).
+- **Prettier**: Version 3.5 or higher (installed as a project dependency).
 
 ### Installation
 
@@ -65,6 +84,15 @@ you already have a good base to support your project's growth.
 
 8. Update the content of `README.md` and documentation in `docs` folder to your liking.
 
+## Example Usage
+
+After installation, you can begin building your application by:
+
+1. Defining your domain entities in `src/core/entities/`
+2. Creating repository interfaces in `src/core/repos/`
+3. Implementing use cases in `src/app/use-cases/`
+4. Adding infrastructure implementations in `src/infra/`
+
 ## Scripts
 
 - `npm run build`: Build the application.
@@ -85,14 +113,30 @@ you already have a good base to support your project's growth.
 
 ## Documentation
 
-- [Architecture Overview](./docs/ARCHITECTURE.md)
-- [Environment Configuration](./docs/ENVIRONMENT.md)
-- [Node.js Configuration](./docs/NODEJS_CONFIG.md)
-- [TypeScript Configuration](./docs/TYPESCRIPT_CONFIG.md)
-- [Testing Guide](./docs/TESTING.md)
-- [Contribution Guidelines](./docs/CONTRIBUTING.md)
-- [Dependencies](./docs/DEPENDENCIES.md)
-- [Backlog](./docs/BACKLOG.md)
+- [Architecture Overview](./docs/ARCHITECTURE.md) - Detailed explanation of
+  the project's architecture and design decisions.
+- [Environment Configuration](./docs/ENVIRONMENT.md) - How to configure
+  environment variables.
+- [Node.js Configuration](./docs/NODEJS_CONFIG.md) - Explanation of
+  `package.json` settings.
+- [TypeScript Configuration](./docs/TYPESCRIPT_CONFIG.md) - Details about
+  TypeScript compiler options.
+- [Testing Guide](./docs/TESTING.md) - Guide to writing and
+  running tests.
+- [Contribution Guidelines](./docs/CONTRIBUTING.md) - How to contribute to the project.
+- [Dependencies](./docs/DEPENDENCIES.md) - Information about project dependencies.
+- [Backlog](./docs/BACKLOG.md) - Planned features and improvements.
+
+## Troubleshooting
+
+### Common Issues
+
+- **TypeScript Compilation Errors**: Ensure you're using Node.js v22+ and
+  have run `npm install`
+- **Test Failures**: Make sure your Node.js version matches
+  the required version in `.nvmrc`
+- **ESLint Configuration Issues**: The project uses the new flat config format.
+  For IDE integration, ensure your editor supports ESLint v9+
 
 ## License
 
