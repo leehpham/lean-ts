@@ -9,7 +9,7 @@ This document explains the fields set in the `tsconfig.json` file.
 - `"target"`: Set the JavaScript language version for emitted JavaScript and
   include compatible library declarations.
 - `"experimentalDecorators`: Enable experimental support for TC39 stage 2 draft decorators.
-  Refer to `reflect-metadata` [here](./DEPENDENCIES.md) for details.
+  Refer to `reflect-metadata` [here](./NODEJS_CONFIG.md) for details.
 - `"emitDecoratorMetadata`: Emit design-type metadata for
   decorated declarations in source files.
 

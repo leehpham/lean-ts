@@ -14,7 +14,11 @@
     "test:learning": "npm run test -- -c ./jest.config.learning.js",
     "test:learning:watch": "npm run test:learning -- --watch",
     "test:unit": "npm run test -- -c ./jest.config.unit.js",
-    "test:unit:watch": "npm run test:unit -- --watch"
+    "test:unit:watch": "npm run test:unit -- --watch",
+    "test:all": "npm run test:eslint && npm run test:learning && npm run test:unit"
+  },
+  "engines": {
+    "node": ">=22"
   },
   "author": "Hoang Pham",
   "license": "ISC",
