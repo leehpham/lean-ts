@@ -93,24 +93,6 @@ After installation, you can begin building your application by:
 3. Implementing use cases in `src/app/use-cases/`
 4. Adding infrastructure implementations in `src/infra/`
 
-## Scripts
-
-- `npm run build`: Build the application.
-  The output `.js` files will be in the `dist` folder.
-- `npm run build:watch`: Build in watch mode.
-- `npm run start`: Start the application.
-- `npm run start:watch`: Start the application in watch mode.
-  This can be used during development.
-- `npm run lint`: Lint files `src` folder.
-  This needs to be updated to also lint test files in `__tests__` folder.
-- `npm run lint:fix`: Fix linting issues for files in `src` folder.
-- `npm run test`: Run **all** tests.
-- `npm run test:watch`: Run all tests in watch mode.
-- `npm run test:learning`: Run learning tests.
-- `npm run test:learning:watch`: Run learning tests in watch mode.
-- `npm run test:unit`: Run unit tests.
-- `npm run test:unit:watch`: Run unit tests in watch mode.
-
 ## Documentation
 
 - [Architecture Overview](./docs/ARCHITECTURE.md) - Detailed explanation of
@@ -124,7 +106,6 @@ After installation, you can begin building your application by:
 - [Testing Guide](./docs/TESTING.md) - Guide to writing and
   running tests.
 - [Contribution Guidelines](./docs/CONTRIBUTING.md) - How to contribute to the project.
-- [Dependencies](./docs/DEPENDENCIES.md) - Information about project dependencies.
 - [Backlog](./docs/BACKLOG.md) - Planned features and improvements.
 
 ## Troubleshooting
