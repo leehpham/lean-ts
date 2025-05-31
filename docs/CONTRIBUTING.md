@@ -1,17 +1,21 @@
 # Contribution Guidelines
 
-We have 2 branches:
+1. There's a **stable main branch**.
+2. Create a **feature branch** for every change:
 
-- `develop`: Represents the development environment.
-- `main`: Represents the production environment.
+    ```bash
+    git checkout -b feat/LT-<number>
+    ```
 
-## Branching Workflow
+3. Commit to the feature branch using this message format
+  `feat: [LT-<number>] <message>`
+4. Push to GitHub:
 
-1. Check out a feature branch from `main`:
-2. Code and push commits to the feature branch.
-3. Once finished, create a pull request to `develop`.
-4. Request for code reviews.
-5. If approved, the feature branch is merged to `develop`.
-6. If all tests passed, create a pull request to `main`.
-7. Request for code review.
-8. If approved, the feature branch is merged to `main`.
+    ```bash
+    git push -u origin feat/LT-<number>
+    ```
+
+5. Open a **pull request (PR)** on GitHub.
+6. Code is **reviewed + tested**.
+7. Merge the PR into `main`.
+8. **Deploy** from `main`.
