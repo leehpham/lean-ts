@@ -56,33 +56,21 @@ with carefully structured layers that support proper separation of concerns.
     rm -rf .git
     ```
 
-3. Remove `package-lock.json`:
+3. Rename `"name"` field in `package.json` to your `<project-folder-name>`.
+
+4. Install packages
 
     ```bash
-    rm package-lock.json
+    npm ci
     ```
 
-4. Rename `"name"` field in `package.json` to your `<project-folder-name>`.
-
-5. Install packages
+5. Run tests to make sure everything is working:
 
     ```bash
-    npm install
+    npm run test:all
     ```
 
-6. (Optional) Update packages and set their version in `package.json`:
-
-    ```bash
-    npm update --save
-    ```
-
-7. Run tests to make sure everything is working:
-
-    ```bash
-    npm run test
-    ```
-
-8. Update the content of `README.md` and documentation in `docs` folder to your liking.
+6. Update the content of `README.md` and documentation in `docs` folder to your liking.
 
 ## Example Usage
 
