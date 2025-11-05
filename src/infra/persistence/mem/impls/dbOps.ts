@@ -1,5 +1,5 @@
-import { MemModel } from "../models/memModel";
-import { MemTable } from "./table";
+import { MemModel } from "../models/memModel.js";
+import { MemTable } from "./table.js";
 
 export interface InMemDbOps {
   createTable: <T extends MemModel>(name: string) => MemTable<T>;

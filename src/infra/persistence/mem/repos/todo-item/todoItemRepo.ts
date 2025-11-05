@@ -1,11 +1,11 @@
 import { Service } from "typedi";
 
-import { BaseMemRepo } from "../../../../../core/repos/mem/common/baseMemRepo";
-import { ITodoItemMemRepo } from "../../../../../core/repos/mem/iTodoItemMemRepo";
-import { MemDb } from "../../impls/db";
-import { MemTable } from "../../impls/table";
-import { TodoItemMemModel } from "../../models/todoItemMemModel";
-import { TodoItemMemRepoConsts as Consts } from "./consts";
+import { BaseMemRepo } from "../../../../../core/repos/mem/common/baseMemRepo.js";
+import { ITodoItemMemRepo } from "../../../../../core/repos/mem/iTodoItemMemRepo.js";
+import { MemDb } from "../../impls/db.js";
+import { MemTable } from "../../impls/table.js";
+import { TodoItemMemModel } from "../../models/todoItemMemModel.js";
+import { TodoItemMemRepoConsts as Consts } from "./consts.js";
 
 @Service()
 export class TodoItemMemRepo

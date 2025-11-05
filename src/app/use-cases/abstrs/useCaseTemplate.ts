@@ -1,5 +1,5 @@
-import { IInputVldtr } from "./iInputVldtr";
-import { IUseCase } from "./iUseCase";
+import { IInputVldtr } from "./iInputVldtr.js";
+import { IUseCase } from "./iUseCase.js";
 
 export abstract class UseCaseTemplate<Input, Output>
   implements IUseCase<Input, Output>

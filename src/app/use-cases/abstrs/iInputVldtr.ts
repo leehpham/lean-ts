@@ -1,4 +1,4 @@
-import { IValidator } from "../../../shared/interfaces/iVldtr";
+import { IValidator } from "../../../shared/interfaces/iVldtr.js";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface IInputVldtr<Input, Output = void>

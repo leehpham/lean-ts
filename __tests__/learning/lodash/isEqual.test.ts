@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { isEqual } from "lodash";
+import { isEqual } from "lodash-es";
 
 describe("lodash:isEqual", () => {
   type O = {

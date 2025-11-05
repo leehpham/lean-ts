@@ -1,6 +1,6 @@
-import { MemModel } from "../models/memModel";
-import { InMemDbOps } from "./dbOps";
-import { MemTable } from "./table";
+import { MemModel } from "../models/memModel.js";
+import { InMemDbOps } from "./dbOps.js";
+import { MemTable } from "./table.js";
 
 export class MemDb implements InMemDbOps {
   private static _instance: MemDb | undefined;

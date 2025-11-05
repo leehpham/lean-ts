@@ -1,7 +1,7 @@
 import { Service } from "typedi";
 
-import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/inputDto";
-import { IInputVldtr } from "../../../abstrs/iInputVldtr";
+import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/inputDto.js";
+import { IInputVldtr } from "../../../abstrs/iInputVldtr.js";
 
 @Service()
 export class CreateTodoItemInputValidator

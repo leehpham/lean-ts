@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { cloneDeep } from "lodash";
+import { cloneDeep } from "lodash-es";
 
 describe("lodash:cloneDeep", () => {
   type Bar = {

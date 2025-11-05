@@ -1,4 +1,4 @@
-import { cloneDeep, isEqual } from "lodash";
+import { cloneDeep, isEqual } from "lodash-es";
 
 export class LodashFacade {
   public static cloneDeep<T>(value: T): T {

@@ -1,19 +1,23 @@
 {
   "name": "lean-ts",
   "version": "0.1.0",
+  "type": "module",
   "main": "./dist/main.js",
+  "exports": {
+    ".": "./dist/main.js"
+  },
   "scripts": {
     "build": "tsc",
     "build:watch": "npm run build -- --watch",
     "start": "npm run build && node ./dist/main.js",
-    "start:watch": "ts-node-dev --no-notify --exit-child --respawn ./src/main.ts",
+    "start:watch": "tsx watch ./src/main.ts",
     "lint": "eslint",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
-    "test:eslint": "node --experimental-vm-modules node_modules/jest/bin/jest.js -c jest.config.eslint.js",
-    "test:learning": "npm run test -- -c ./jest.config.learning.js",
+    "test:eslint": "node --experimental-vm-modules node_modules/jest/bin/jest.js -c jest.config.eslint.mjs",
+    "test:learning": "npm run test -- -c ./jest.config.learning.mjs",
     "test:learning:watch": "npm run test:learning -- --watch",
-    "test:unit": "npm run test -- -c ./jest.config.unit.js",
+    "test:unit": "npm run test -- -c ./jest.config.unit.mjs",
     "test:unit:watch": "npm run test:unit -- --watch",
     "test:all": "npm run test:eslint && npm run test:learning && npm run test:unit"
   },
@@ -27,7 +31,7 @@
     "@faker-js/faker": "^9.9.0",
     "@jest/globals": "^30.0.4",
     "@stylistic/eslint-plugin": "^5.2.3",
-    "@types/lodash": "^4.17.20",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^24.2.1",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "eslint": "^9.33.0",
@@ -36,12 +40,12 @@
     "jest": "^30.0.5",
     "prettier": "^3.6.2",
     "ts-jest": "^29.4.1",
-    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.19.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "reflect-metadata": "^0.2.2",
     "typedi": "^0.10.0"
   }

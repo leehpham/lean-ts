@@ -1,5 +1,5 @@
-import { MemModel } from "../../../../infra/persistence/mem/models/memModel";
-import { IInMemRepo } from "./iMemRepo";
+import { MemModel } from "../../../../infra/persistence/mem/models/memModel.js";
+import { IInMemRepo } from "./iMemRepo.js";
 
 export abstract class BaseMemRepo<T extends MemModel> implements IInMemRepo<T> {
   public abstract create(input: Omit<T, "id">): T;

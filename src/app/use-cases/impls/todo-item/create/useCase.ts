@@ -1,13 +1,13 @@
 import { Inject, Service } from "typedi";
 
-import { ICreateMemRepo } from "../../../../../core/repos/mem/common/iCreateMemRepo";
-import { TodoItemMemModel } from "../../../../../infra/persistence/mem/models/todoItemMemModel";
-import { TodoItemMemRepo } from "../../../../../infra/persistence/mem/repos/todo-item/todoItemRepo";
-import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/inputDto";
-import { CreateTodoItemOutputDto } from "../../../../dto/todo-item/create/outputDto";
-import { IInputVldtr } from "../../../abstrs/iInputVldtr";
-import { UseCaseTemplate } from "../../../abstrs/useCaseTemplate";
-import { CreateTodoItemInputValidator } from "./inputVldtr";
+import { ICreateMemRepo } from "../../../../../core/repos/mem/common/iCreateMemRepo.js";
+import { TodoItemMemModel } from "../../../../../infra/persistence/mem/models/todoItemMemModel.js";
+import { TodoItemMemRepo } from "../../../../../infra/persistence/mem/repos/todo-item/todoItemRepo.js";
+import { CreateTodoItemInputDto } from "../../../../dto/todo-item/create/inputDto.js";
+import { CreateTodoItemOutputDto } from "../../../../dto/todo-item/create/outputDto.js";
+import { IInputVldtr } from "../../../abstrs/iInputVldtr.js";
+import { UseCaseTemplate } from "../../../abstrs/useCaseTemplate.js";
+import { CreateTodoItemInputValidator } from "./inputVldtr.js";
 
 @Service()
 export class CreateTodoItemUseCase extends UseCaseTemplate<

@@ -1,6 +1,6 @@
-import { MemModel } from "../models/memModel";
-import { InMemTableConsts as Consts } from "./tableConsts";
-import { MemTableOps } from "./tableOps";
+import { MemModel } from "../models/memModel.js";
+import { InMemTableConsts as Consts } from "./tableConsts.js";
+import { MemTableOps } from "./tableOps.js";
 
 export class MemTable<T extends MemModel> implements MemTableOps<T> {
   private _name: string;

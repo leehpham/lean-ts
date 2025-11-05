@@ -1,4 +1,4 @@
-import { TodoItem } from "../../../../core/entities/todoItem";
-import { MemModel } from "./memModel";
+import { TodoItem } from "../../../../core/entities/todoItem.js";
+import { MemModel } from "./memModel.js";
 
 export type TodoItemMemModel = MemModel & TodoItem & {};
