@@ -1,0 +1,15 @@
+.dockerignore
+.git
+.gitignore
+.idea
+.ignore
+.nvmrc
+.prettierignore
+.prettierrc
+.temp
+.vscode
+dist
+Dockerfile
+docs
+node_modules
+README.md
